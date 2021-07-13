@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    container_name: django
+    command: pipenv run python manage.py runserver 0.0.0.0:8000
+    environment:
+      - DJANGO_SETTINGS_MODULE=app.settings
+    volumes:
+      - .:/app
+    ports:
+      - "8000:80"
