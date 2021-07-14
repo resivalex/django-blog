@@ -1,5 +1,6 @@
 from .resume import black_link, output_place, output_tags, \
-    sape_tags, oneretarget_tags, selfeducation_tags, piratetrade_tags, piratetrade_2_tags, lakehouse_tags
+    sape_tags, oneretarget_tags, selfeducation_tags, piratetrade_tags, piratetrade_2_tags, lakehouse_tags, \
+    light_bulb, chat
 
 
 def html():
@@ -165,7 +166,7 @@ def html():
 	<div class="header">Высшее образование</div>
 
 	<div class="row-with-icon">
-		<div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-send"></span></div>
+		<div class="row-with-icon__icon">{light_bulb()}</div>
 		<div class="row-with-icon__info">
 			<div>Псковский государственный университет</div>
 			<div>2008 - 2013</div>
@@ -176,7 +177,7 @@ def html():
 	<div class="header">Знание языков</div>
 
 	<div class="row-with-icon">
-		<div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-send"></span></div>
+		<div class="row-with-icon__icon">{chat()}</div>
 		<div class="row-with-icon__info">
 			<div itemprop="nationality">Русский — Родной</div>
 			<div>Английский — Upper Intermediate</div>
