@@ -30,6 +30,7 @@ def html():
 
 	<div class="sub-header">Tasks</div>
 	<p>
+		— Topic text classification<br>
 		— Price recommendation model development<br>
 		— Searching for significant features, which cause product dissatisfaction<br>
 		— Helping SEO-specialists to construct effective promotion strategies
