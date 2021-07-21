@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from app.views import home, english_resume, styles
+from app.views import home, english_resume, styles, favicon
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('resume-russian', home, name='resume-russian'),
     path('resume-english', english_resume, name='resume-english'),
-    path('static/app/styles.css', styles, name='styles')
+    path('static/app/styles.css', styles, name='styles'),
+    path('static/app/favicon.png', favicon, name='favicon')
 ]

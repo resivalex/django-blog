@@ -15,3 +15,8 @@ def english_resume(request):
 def styles(_request):
     css = open('app/static/app/styles.css').read()
     return HttpResponse(css, content_type="text/css")
+
+
+def favicon(_request):
+    png = open('app/static/app/favicon.png', 'rb').read()
+    return HttpResponse(png, content_type="image/png")

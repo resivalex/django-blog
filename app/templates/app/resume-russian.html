@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Решетников Иван | Резюме</title>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{% static 'app/styles.css' %}" rel="stylesheet">
+    <link href="/static/app/styles.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/static/app/favicon.png" />
 </head>
 <body>
     {{ html|safe }}
