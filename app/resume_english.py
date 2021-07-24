@@ -1,6 +1,6 @@
 from .resume import black_link, output_place, output_tags, \
     sape_tags, oneretarget_tags, selfeducation_tags, piratetrade_tags, piratetrade_2_tags, lakehouse_tags, \
-    light_bulb, chat
+    light_bulb, chat, linkedin
 
 
 def html():
@@ -184,6 +184,12 @@ def html():
 
 	<div class="header">Contacts</div>
 
+	<div class="row-with-icon">
+		<div class="row-with-icon__icon">{linkedin()}</span></div>
+		<div class="row-with-icon__info">
+			<div>{black_link('https://www.linkedin.com/in/resivalex/', 'LinkedIn profile')}</div>
+		</div>
+	</div>
 	<div class="row-with-icon">
 		<div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-envelope"></span></div>
 		<div class="row-with-icon__info">
