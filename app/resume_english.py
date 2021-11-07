@@ -13,8 +13,7 @@ def html():
 	<div class="main-header" itemprop="name">Ivan Reshetnikov</div>
 
 	<p itemprop="description">
-		I like writing beautiful and clean code, am interested in new technologies<br>
-		I have a good sense of algorithm effectiveness<br>
+		I like writing beautiful and clean code<br>
 		GitHub profile {black_link('https://github.com/resivalex')}
 	</p>
 
@@ -30,6 +29,7 @@ def html():
 
 	<div class="sub-header">Tasks</div>
 	<p>
+		— Semantic search through millions of documents
 		— Topic text classification<br>
 		— Price recommendation model development<br>
 		— Searching for significant features, which cause product dissatisfaction<br>
