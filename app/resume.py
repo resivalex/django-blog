@@ -2,7 +2,8 @@ from .period import Period
 
 
 def sape_tags():
-    return ['Python', 'Pandas', 'MatPlotLib', 'NumPy', 'SciKit-Learn', 'Gensim', 'Jupyter', 'Flask', 'PyTest']
+    return ['Python', 'Pandas', 'MatPlotLib', 'Seaborn', 'Plotly', 'NumPy', 'SciKit-Learn', 'Gensim', 'Jupyter',
+            'Flask', 'PyTest', 'ClickHouse', 'Power BI']
 
 
 def oneretarget_tags():
