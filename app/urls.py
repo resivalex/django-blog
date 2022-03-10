@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from app.views import home, english_resume, styles, favicon
+from app.views import home, english_resume, styles, favicon, yandex_verification
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +23,6 @@ urlpatterns = [
     path('resume-russian', home, name='resume-russian'),
     path('resume-english', english_resume, name='resume-english'),
     path('static/app/styles.css', styles, name='styles'),
-    path('static/app/favicon.png', favicon, name='favicon')
+    path('static/app/favicon.png', favicon, name='favicon'),
+    path('yandex_b7c26d3a89609f98.html', yandex_verification, name='yandex_verification')
 ]
