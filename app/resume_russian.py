@@ -19,12 +19,15 @@ def html():
 
 	<div class="header" itemprop="jobTitle">Machine Learning инженер</div>
 
-  {output_place(
-        month_period='2020.11-present',
-        locale='ru',
-			name='Sape',
-			link='https://sape.ru',
-			description='Инструменты для рекламы и заработка в интернете')}
+  {
+		output_place(
+        	month_period='2020.11-2022.03',
+        	locale='ru',
+				name='Sape',
+				link='https://sape.ru',
+				description='Инструменты для рекламы и заработка в интернете'
+		)
+	}
 
 	<div class="sub-header">Задачи</div>
 	<p>

@@ -20,11 +20,13 @@ def html():
 	<div class="header" itemprop="jobTitle">Machine Learning Engineer</div>
 
   {
-		output_place(month_period='2020.11-present',
+		output_place(
+			month_period='2020.11-2022.03',
 			locale='en',
 			name='Sape',
 			link='https://sape.ru',
-			description='Backlinks purchase service')
+			description='Backlinks purchase service'
+		)
   }
 
 	<div class="sub-header">Tasks</div>
