@@ -21,7 +21,7 @@ def html():
 
   {
 		output_place(
-			month_period='2020.11-2022.03',
+			month_period='2020.12-2022.03',
 			locale='en',
 			name='Sape',
 			link='https://sape.ru',
