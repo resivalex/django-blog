@@ -5,19 +5,19 @@ from .resume import black_link, output_place, output_tags, \
 
 def html():
     return f'''
-<div class="container" itemscope itemtype="http://schema.org/Person">
+<div class="container">
 	<div>
 		[<a href="/resume-russian">Переключить на русский</a>]
 	</div>
 
-	<div class="main-header" itemprop="name">Ivan Reshetnikov</div>
+	<div class="main-header">Ivan Reshetnikov</div>
 
-	<p itemprop="description">
+	<p>
 		I like writing beautiful and clean code<br>
 		GitHub profile {black_link('https://github.com/resivalex')}
 	</p>
 
-	<div class="header" itemprop="jobTitle">Machine Learning Engineer</div>
+	<div class="header">Machine Learning Engineer</div>
 
   {
 		output_place(
@@ -48,7 +48,7 @@ def html():
   	output_tags(sape_tags())
   }
 
-	<div class="header" itemprop="jobTitle">Lead Ruby on Rails developer</div>
+	<div class="header">Lead Ruby on Rails developer</div>
 
 	{
 		output_place(month_period='2016.12-2020.11',
@@ -179,7 +179,7 @@ def html():
 	<div class="row-with-icon">
 		<div class="row-with-icon__icon">{chat()}</div>
 		<div class="row-with-icon__info">
-			<div itemprop="nationality">Russian — Native</div>
+			<div>Russian — Native</div>
 			<div>English — Upper Intermediate</div>
 		</div>
 	</div>
@@ -195,7 +195,7 @@ def html():
 	<div class="row-with-icon">
 		<div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-envelope"></span></div>
 		<div class="row-with-icon__info">
-			<div itemprop="email">resivalex@gmail.com</div>
+			<div>resivalex@gmail.com</div>
 		</div>
 	</div>
 </div>
