@@ -17,6 +17,23 @@ def html():
 		GitHub profile {black_link('https://github.com/resivalex')}
 	</p>
 
+	<div class="header">Data Scientist</div>
+
+  {
+		output_place(
+			month_period='2022.04-present',
+			locale='en',
+			name='Architech NYC',
+			link='https://architech.nyc',
+			description='Business services'
+		)
+  }
+
+	<div class="sub-header">Tasks</div>
+	<p>
+		— Machine learning adoption
+	</p>
+
 	<div class="header">Machine Learning Engineer</div>
 
   {
