@@ -15,7 +15,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.resivalex.rule=Host(`resivalex.com`)"
       - "traefik.http.routers.resivalex.entrypoints=https"
-      - "traefik.http.routers.resivalex.tls.certresolver=myresolver"
+      - "traefik.http.routers.resivalex.tls.certresolver=letsEncrypt"
       - "traefik.http.services.resivalex.loadbalancer.server.port=8000"
     networks:
       - web
