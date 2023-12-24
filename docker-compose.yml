@@ -1,20 +1,14 @@
 version: "3.9"
 services:
-  app:
+  resivalex:
     build: .
     restart: always
-    container_name: django
+    container_name: resivalex
     command: pipenv run python manage.py runserver 0.0.0.0:8000
     environment:
       - DJANGO_SETTINGS_MODULE=app.settings
     volumes:
       - .:/app
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.resivalex.rule=Host(`resivalex.com`)"
-      - "traefik.http.routers.resivalex.entrypoints=https"
-      - "traefik.http.routers.resivalex.tls.certresolver=letsEncrypt"
-      - "traefik.http.services.resivalex.loadbalancer.server.port=8000"
     networks:
       - web
 
