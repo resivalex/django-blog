@@ -9,8 +9,6 @@ services:
       - DJANGO_SETTINGS_MODULE=app.settings
     volumes:
       - .:/app
-    ports:
-      - "8000:8000"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.resivalex.rule=Host(`resivalex.com`)"
