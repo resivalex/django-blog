@@ -1,3 +1,5 @@
+{% load resume_tags %}
+
 <div class="container">
     <div>
         [<a href="/resume-russian">Переключить на русский</a>]
@@ -7,18 +9,12 @@
 
     <p>
         I like writing beautiful and clean code<br>
-        GitHub profile {{ black_link('https://github.com/resivalex') }}
+        GitHub profile {% black_link url="https://github.com/resivalex" %}
     </p>
 
     <div class="header">Data Scientist</div>
 
-    {{ output_place(
-        month_period='2022.04-present',
-        locale='en',
-        name='Architech NYC',
-        link='https://architech.nyc',
-        description='Business services'
-    ) }}
+    {% output_place month_period="2022.04-present" locale="en" name="Architech NYC" link="https://architech.nyc" description="Business services" %}
 
     <div class="sub-header">Tasks</div>
     <p>
@@ -27,13 +23,7 @@
 
     <div class="header">Machine Learning Engineer</div>
 
-    {{ output_place(
-        month_period='2020.12-2022.03',
-        locale='en',
-        name='Sape',
-        link='https://sape.ru',
-        description='Backlinks purchase service'
-    ) }}
+    {% output_place month_period="2020.12-2022.03" locale="en" name="Sape" link="https://sape.ru" description="Backlinks purchase service" %}
 
     <div class="sub-header">Tasks</div>
     <p>
@@ -50,20 +40,15 @@
     </p>
 
     <div class="sub-header">Technologies</div>
-    {{ output_tags(sape_tags()) }}
+    {% output_sape_tags %}
 
     <div class="header">Lead Ruby on Rails developer</div>
 
-    {{ output_place(
-        month_period='2016.12-2020.11',
-        name='OneRetarget.com',
-        link='https://oneretarget.com',
-        description='A service to manage several ad platforms at one account'
-    ) }}
+    {% output_place month_period="2016.12-2020.11" name="OneRetarget.com" link="https://oneretarget.com" description="A service to manage several ad platforms at one account" %}
 
     <div class="sub-header">Tasks</div>
     <p>
-        — Chosing the technical development strategy and tools, suggestion/discussion of implementation ways. Code review<br>
+        — Choosing the technical development strategy and tools, suggestion/discussion of implementation ways. Code review<br>
         — Creating tools to analyze and manage ads<br>
         — Synchronization of statistics, state of moderation<br>
         — Implementing of new formats. Error handling<br>
@@ -81,48 +66,39 @@
     </p>
 
     <div class="sub-header">Technologies</div>
-    {{ output_tags(oneretarget_tags()) }}
+    {% output_oneretarget_tags %}
 
     <div class="header">Ruby on Rails developer</div>
 
-    {{ output_place(
-        month_period='2016.04-2016.11',
-        name='Lakehouse',
-        link='http://www.lakehouse.ru'
-    ) }}
+    {% output_place month_period="2016.04-2016.11" name="Lakehouse" link="http://www.lakehouse.ru" %}
 
     <div class="sub-header">Tasks</div>
     <p>
-        — Real estate project support and development {{ black_link('http://o-din.ru/') }}<br>
-        — Beauty specialists qualification project support and development {{ black_link('http://e-academie.ru/') }}
+        — Real estate project support and development {% black_link url="http://o-din.ru/" %}<br>
+        — Beauty specialists qualification project support and development {% black_link url="http://e-academie.ru/" %}
     </p>
     <div class="sub-header">Technologies</div>
-    {{ output_tags(lakehouse_tags()) }}
+    {% output_lakehouse_tags %}
 
-    <div class="header">Самообразование</div>
+    <div class="header">Self-education</div>
 
-    {{ output_place(month_period='2016.02-2016.04') }}
+    {% output_place month_period="2016.02-2016.04" %}
 
     <div class="sub-header">Tasks</div>
     <p>
-        — Graduation work rewriting {{ black_link('https://github.com/resivalex/student-progress-on-rails') }}<br>
-        — Trampoline center website development {{ black_link('https://github.com/resivalex/zaskok') }}
+        — Graduation work rewriting {% black_link url="https://github.com/resivalex/student-progress-on-rails" %}<br>
+        — Trampoline center website development {% black_link url="https://github.com/resivalex/zaskok" %}
     </p>
     <div class="sub-header">Technologies</div>
-    {{ output_tags(selfeducation_tags()) }}
+    {% output_selfeducation_tags %}
 
     <div class="header">Software developer</div>
 
-    {{ output_place(
-        month_period='2015.04-2016.01',
-        name='Nasca Ltd.',
-        link='http://piratetrade.ru',
-        description='Exchange trading company'
-    ) }}
+    {% output_place month_period="2015.04-2016.01" name="Nasca Ltd." link="http://piratetrade.ru" description="Exchange trading company" %}
 
     <div class="sub-header">Tasks</div>
     <p>
-        — Website development {{ black_link('http://pskovskie.ru/') }} from scratch<br>
+        — Website development {% black_link url="http://pskovskie.ru/" %} from scratch<br>
         — Development of a multi-component network application in a team of five members using the Scrum methodology<br>
         — Full implementation of an important component interacting with the exchange<br>
         — Unit-testing with Catch framework<br>
@@ -131,16 +107,11 @@
         — Code review
     </p>
     <div class="sub-header">Technologies</div>
-    {{ output_tags(piratetrade_2_tags()) }}
+    {% output_piratetrade_2_tags %}
 
     <div class="header">C++/Qt developer</div>
 
-    {{ output_place(
-        month_period='2012.12-2013.09',
-        name='Nasca Ltd.',
-        link='http://piratetrade.ru',
-        description='Exchange trading company'
-    ) }}
+    {% output_place month_period="2012.12-2013.09" name="Nasca Ltd." link="http://piratetrade.ru" description="Exchange trading company" %}
 
     <div class="sub-header">Tasks</div>
     <p>
@@ -153,12 +124,12 @@
         — Using system of version control
     </p>
     <div class="sub-header">Technologies</div>
-    {{ output_tags(piratetrade_tags()) }}
+    {% output_piratetrade_tags %}
 
     <div class="header">Higher education</div>
 
     <div class="row-with-icon">
-        <div class="row-with-icon__icon">{{ light_bulb() }}</div>
+        <div class="row-with-icon__icon">{% light_bulb %}</div>
         <div class="row-with-icon__info">
             <div>Pskov State University</div>
             <div>2008 - 2013</div>
@@ -169,7 +140,7 @@
     <div class="header">Languages</div>
 
     <div class="row-with-icon">
-        <div class="row-with-icon__icon">{{ chat() }}</div>
+        <div class="row-with-icon__icon">{% chat %}</div>
         <div class="row-with-icon__info">
             <div>Russian — Native</div>
             <div>English — Upper Intermediate</div>
@@ -179,9 +150,9 @@
     <div class="header">Contacts</div>
 
     <div class="row-with-icon">
-        <div class="row-with-icon__icon">{{ linkedin() }}</div>
+        <div class="row-with-icon__icon">{% linkedin %}</div>
         <div class="row-with-icon__info">
-            <div>{{ black_link('https://www.linkedin.com/in/resivalex/', 'LinkedIn profile') }}</div>
+            <div>{% black_link url="https://www.linkedin.com/in/resivalex/" text="LinkedIn profile" %}</div>
         </div>
     </div>
     <div class="row-with-icon">

@@ -13,16 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, re_path
-from app.views import home, english_resume, styles, favicon, yandex_verification
+from app.views import home, russian_resume, styles, favicon, yandex_verification
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', home, name='home'),
-    path('resume-russian', home, name='resume-russian'),
-    path('resume-english', english_resume, name='resume-english'),
-    path('static/app/styles.css', styles, name='styles'),
-    path('static/app/favicon.png', favicon, name='favicon'),
-    path('yandex_b7c26d3a89609f98.html', yandex_verification, name='yandex_verification')
+    path("admin/", admin.site.urls),
+    path("", home, name="home"),
+    path("resume-english", home, name="resume-english"),
+    path("resume-russian", russian_resume, name="resume-russian"),
+    path("static/app/styles.css", styles, name="styles"),
+    path("static/app/favicon.png", favicon, name="favicon"),
+    path(
+        "yandex_b7c26d3a89609f98.html", yandex_verification, name="yandex_verification"
+    ),
 ]
