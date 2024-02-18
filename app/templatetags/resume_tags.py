@@ -9,6 +9,21 @@ def output_tags(tags):
     return mark_safe("\n".join([f'<div class="tag">{tag}</div>' for tag in tags]))
 
 
+def architech_tags():
+    return [
+        "Python",
+        "Streamlit",
+        "PyTorch",
+        "LGBM",
+        "ChatGPT",
+        "PostgreSQL",
+        "Apache Superset",
+        "Docker",
+        "FastAPI",
+        "PyTest",
+    ]
+
+
 def sape_tags():
     return [
         "Python",
@@ -112,6 +127,11 @@ def piratetrade_2_tags():
 
 def piratetrade_tags():
     return ["C++", "C++ Standard Library", "Qt", "JavaScript", "jQuery", "HTML", "SVN"]
+
+
+@register.simple_tag
+def output_architech_tags():
+    return mark_safe(output_tags(architech_tags()))
 
 
 @register.simple_tag
