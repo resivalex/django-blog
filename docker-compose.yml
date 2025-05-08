@@ -10,8 +10,8 @@ services:
     volumes:
       - .:/app
     networks:
-      - web
+      - traefik
 
 networks:
-  web:
+  traefik:
     external: true
