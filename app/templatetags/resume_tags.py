@@ -9,6 +9,25 @@ def output_tags(tags):
     return mark_safe("\n".join([f'<div class="tag">{tag}</div>' for tag in tags]))
 
 
+def maksmart_tags():
+    return [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "SciKit-Learn",
+        "PyTorch",
+        "LightGBM",
+        "AutoGluon",
+        "FastAPI",
+        "Docker",
+        "PostgreSQL",
+        "Google Sheets API",
+        "Parquet",
+        "Dask",
+        "Jupyter",
+    ]
+
+
 def architech_tags():
     return [
         "Python",
@@ -127,6 +146,11 @@ def piratetrade_2_tags():
 
 def piratetrade_tags():
     return ["C++", "C++ Standard Library", "Qt", "JavaScript", "jQuery", "HTML", "SVN"]
+
+
+@register.simple_tag
+def output_maksmart_tags():
+    return mark_safe(output_tags(maksmart_tags()))
 
 
 @register.simple_tag
