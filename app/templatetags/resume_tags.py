@@ -12,19 +12,15 @@ def output_tags(tags):
 def maksmart_tags():
     return [
         "Python",
-        "Pandas",
-        "NumPy",
-        "SciKit-Learn",
         "PyTorch",
-        "LightGBM",
-        "AutoGluon",
+        "LLM",
+        "AutoML",
+        "Active Learning",
         "FastAPI",
+        "fastText",
         "Docker",
         "PostgreSQL",
-        "Google Sheets API",
-        "Parquet",
-        "Dask",
-        "Jupyter",
+        "ClickHouse",
     ]
 
 
