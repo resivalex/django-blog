@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,9 +7,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Решетников Иван | Резюме</title>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/app/styles.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/static/app/favicon.png" />
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'app/styles.css' %}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'app/favicon.png' %}" />
 </head>
 <body>
     {% include 'app/resume-russian-body.html' %}

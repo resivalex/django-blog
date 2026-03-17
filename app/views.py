@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template.loader import render_to_string
+from weasyprint import HTML
 
 
 def home(request):
@@ -8,6 +10,20 @@ def home(request):
 
 def russian_resume(request):
     return render(request, "app/resume-russian.html", {})
+
+
+def resume_pdf(request, lang):
+    templates = {
+        'en': ('app/resume-english.html', 'Ivan_Reshetnikov_Senior_MLE.pdf'),
+        'ru': ('app/resume-russian.html', 'Ivan_Reshetnikov_Senior_MLE.pdf'),
+    }
+    template_name, filename = templates[lang]
+    html_string = render_to_string(template_name, request=request)
+    base_url = request.build_absolute_uri('/')
+    pdf = HTML(string=html_string, base_url=base_url).write_pdf()
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    return response
 
 
 def styles(_request):

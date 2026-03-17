@@ -16,13 +16,15 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, re_path
-from app.views import home, russian_resume, styles, favicon, yandex_verification
+from app.views import home, russian_resume, resume_pdf, styles, favicon, yandex_verification
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
     path("resume-english", home, name="resume-english"),
     path("resume-russian", russian_resume, name="resume-russian"),
+    path("resume-english.pdf", lambda r: resume_pdf(r, 'en'), name="resume-english-pdf"),
+    path("resume-russian.pdf", lambda r: resume_pdf(r, 'ru'), name="resume-russian-pdf"),
     path("static/app/styles.css", styles, name="styles"),
     path("static/app/favicon.png", favicon, name="favicon"),
     path(
