@@ -3,26 +3,20 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 from weasyprint import HTML
 
+RESUME_TEMPLATE = "app/resume.html"
+RESUME_PDF_FILENAME = "Ivan_Reshetnikov_Senior_MLE.pdf"
+
 
 def home(request):
-    return render(request, "app/resume-english.html", {})
+    return render(request, RESUME_TEMPLATE, {})
 
 
-def russian_resume(request):
-    return render(request, "app/resume-russian.html", {})
-
-
-def resume_pdf(request, lang):
-    templates = {
-        'en': ('app/resume-english.html', 'Ivan_Reshetnikov_Senior_MLE.pdf'),
-        'ru': ('app/resume-russian.html', 'Ivan_Reshetnikov_Senior_MLE.pdf'),
-    }
-    template_name, filename = templates[lang]
-    html_string = render_to_string(template_name, request=request)
+def resume_pdf(request):
+    html_string = render_to_string(RESUME_TEMPLATE, request=request)
     base_url = request.build_absolute_uri('/')
     pdf = HTML(string=html_string, base_url=base_url).write_pdf()
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    response['Content-Disposition'] = f'attachment; filename="{RESUME_PDF_FILENAME}"'
     return response
 
 

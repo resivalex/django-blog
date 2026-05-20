@@ -172,9 +172,7 @@ def output_piratetrade_tags():
 @register.simple_tag
 def output_place(
     month_period=None,
-    locale=None,
     duration=None,
-    rus_month_period=None,
     name=None,
     link=None,
     description=None,
@@ -184,17 +182,8 @@ def output_place(
     if month_period is not None:
         months = month_period.split("-")
         period = Period(months[0], months[1])
-        if locale is not None and locale == "ru":
-            duration = period.to_russian_duration()
-            period = period.to_russian_string()
-        else:
-            duration = period.to_english_duration()
-            period = period.to_english_string()
-    if rus_month_period is not None:
-        months = rus_month_period.split("-")
-        period = Period(months[0], months[1])
-        duration = period.to_english_duration()
-        period = period.to_english_string()
+        duration = period.duration()
+        period = period.to_string()
     if duration is not None or period is not None:
         result += f"""<div class="row-with-icon">
           <div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-time"></span></div>

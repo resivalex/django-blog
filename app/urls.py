@@ -1,30 +1,11 @@
-"""app URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
 from django.contrib import admin
-from django.urls import path, re_path
-from app.views import home, russian_resume, resume_pdf, styles, favicon, yandex_verification
+from django.urls import path
+from app.views import home, resume_pdf, styles, favicon, yandex_verification
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
-    path("resume-english", home, name="resume-english"),
-    path("resume-russian", russian_resume, name="resume-russian"),
-    path("resume-english.pdf", lambda r: resume_pdf(r, 'en'), name="resume-english-pdf"),
-    path("resume-russian.pdf", lambda r: resume_pdf(r, 'ru'), name="resume-russian-pdf"),
+    path("Ivan_Reshetnikov_Senior_MLE.pdf", resume_pdf, name="resume-pdf"),
     path("static/app/styles.css", styles, name="styles"),
     path("static/app/favicon.png", favicon, name="favicon"),
     path(

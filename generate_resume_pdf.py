@@ -1,21 +1,20 @@
 #!/usr/bin/env python
 """
-Generate resume PDFs from Django templates using WeasyPrint.
+Generate the resume PDF from the Django template using WeasyPrint.
 
 Usage:
-    python generate_resume_pdf.py          # Generate both PDFs
-    python generate_resume_pdf.py ru       # Generate Russian PDF only
-    python generate_resume_pdf.py en       # Generate English PDF only
+    python generate_resume_pdf.py
 """
 
 import os
-import sys
 import shutil
 import django
 from django.conf import settings
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+RESUME_TEMPLATE = 'app/resume.html'
+RESUME_PDF_FILENAME = 'Ivan_Reshetnikov_Senior_MLE.pdf'
 
 if not settings.configured:
     settings.configure(
@@ -48,17 +47,6 @@ django.setup()
 from django.template.loader import render_to_string
 from weasyprint import HTML
 
-RESUMES = {
-    'ru': {
-        'template': 'app/resume-russian.html',
-        'output': 'resume_ru.pdf',
-    },
-    'en': {
-        'template': 'app/resume-english.html',
-        'output': 'resume_en.pdf',
-    },
-}
-
 
 def prepare_static_files():
     if os.path.exists(STATIC_ROOT):
@@ -73,12 +61,11 @@ def prepare_static_files():
         )
 
 
-def generate_pdf(lang):
-    config = RESUMES[lang]
-    html_string = render_to_string(config['template'])
+def generate_pdf():
+    html_string = render_to_string(RESUME_TEMPLATE)
     html = HTML(string=html_string, base_url=f"file://{BASE_DIR}/")
-    html.write_pdf(config['output'])
-    print(f"Generated {config['output']}")
+    html.write_pdf(RESUME_PDF_FILENAME)
+    print(f"Generated {RESUME_PDF_FILENAME}")
 
 
 def cleanup():
@@ -87,17 +74,9 @@ def cleanup():
 
 
 def main():
-    langs = sys.argv[1:] if len(sys.argv) > 1 else ['ru', 'en']
-
-    for lang in langs:
-        if lang not in RESUMES:
-            print(f"Unknown language: {lang}. Use 'ru' or 'en'.")
-            sys.exit(1)
-
     prepare_static_files()
     try:
-        for lang in langs:
-            generate_pdf(lang)
+        generate_pdf()
     finally:
         cleanup()
 
