@@ -1,4 +1,5 @@
 from django import template
+from django.utils.html import format_html_join
 from django.utils.safestring import mark_safe
 from .period import Period
 
@@ -6,7 +7,7 @@ register = template.Library()
 
 
 def output_tags(tags):
-    return mark_safe("\n".join([f'<div class="tag">{tag}</div>' for tag in tags]))
+    return format_html_join("", '<span class="tag">{}</span>', ((tag,) for tag in tags))
 
 
 def maksmart_tags():
@@ -185,23 +186,17 @@ def output_place(
         duration = period.duration()
         period = period.to_string()
     if duration is not None or period is not None:
-        result += f"""<div class="row-with-icon">
-          <div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-time"></span></div>
-          <div class="row-with-icon__info">
+        result += f"""<div class="place-meta__time">
             <div>{duration}</div>
-            <div class="row-with-icon__comment">{period}</div>
-          </div>
+            <div class="place-meta__comment">{period}</div>
         </div>"""
     if name is not None or link is not None or description is not None:
-        result += f"""<div class="row-with-icon">
-          <div class="row-with-icon__icon"><span class="symbol-icon glyphicon glyphicon-map-marker"></span></div>
-          <div class="row-with-icon__info">
+        result += f"""<div class="place-meta__organization">
             <div>{name}</div>
             <div>{black_link(link) if link else ''}</div>
-            <div class="row-with-icon__comment">{description}</div>
-          </div>
+            <div class="place-meta__comment">{description}</div>
         </div>"""
-    return mark_safe(result)
+    return mark_safe(f'<div class="place-meta">{result}</div>')
 
 
 @register.simple_tag
