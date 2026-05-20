@@ -1,0 +1,20 @@
+<div class="place-meta">
+    {% if show_time %}
+        <div class="place-meta__time">
+            {% if duration %}<div>{{ duration }}</div>{% endif %}
+            {% if period %}<div class="place-meta__comment">{{ period }}</div>{% endif %}
+        </div>
+    {% endif %}
+
+    {% if show_organization %}
+        <div class="place-meta__organization">
+            {% if name %}<div>{{ name }}</div>{% endif %}
+            {% if link %}
+                <div>
+                    <a target="_blank" class="black-link" href="{{ link }}">{{ link }}</a>
+                </div>
+            {% endif %}
+            {% if description %}<div class="place-meta__comment">{{ description }}</div>{% endif %}
+        </div>
+    {% endif %}
+</div>

@@ -1,13 +1,16 @@
 from django import template
-from django.utils.html import format_html_join
 from django.utils.safestring import mark_safe
 from .period import Period
 
 register = template.Library()
 
 
-def output_tags(tags):
-    return format_html_join("", '<span class="tag">{}</span>', ((tag,) for tag in tags))
+TAGS_TEMPLATE = "app/includes/tags.html"
+PLACE_TEMPLATE = "app/includes/place.html"
+
+
+def tags_context(tags):
+    return {"tags": tags}
 
 
 def maksmart_tags():
@@ -130,47 +133,47 @@ def piratetrade_tags():
     return ["C++", "C++ Standard Library", "Qt", "JavaScript", "jQuery", "HTML", "SVN"]
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_maksmart_tags():
-    return mark_safe(output_tags(maksmart_tags()))
+    return tags_context(maksmart_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_architech_tags():
-    return mark_safe(output_tags(architech_tags()))
+    return tags_context(architech_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_sape_tags():
-    return mark_safe(output_tags(sape_tags()))
+    return tags_context(sape_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_oneretarget_tags():
-    return mark_safe(output_tags(oneretarget_tags()))
+    return tags_context(oneretarget_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_lakehouse_tags():
-    return mark_safe(output_tags(lakehouse_tags()))
+    return tags_context(lakehouse_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_selfeducation_tags():
-    return mark_safe(output_tags(selfeducation_tags()))
+    return tags_context(selfeducation_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_piratetrade_2_tags():
-    return mark_safe(output_tags(piratetrade_2_tags()))
+    return tags_context(piratetrade_2_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(TAGS_TEMPLATE)
 def output_piratetrade_tags():
-    return mark_safe(output_tags(piratetrade_tags()))
+    return tags_context(piratetrade_tags())
 
 
-@register.simple_tag
+@register.inclusion_tag(PLACE_TEMPLATE)
 def output_place(
     month_period=None,
     duration=None,
@@ -178,25 +181,24 @@ def output_place(
     link=None,
     description=None,
 ):
-    result = ""
     period = None
     if month_period is not None:
         months = month_period.split("-")
         period = Period(months[0], months[1])
         duration = period.duration()
         period = period.to_string()
-    if duration is not None or period is not None:
-        result += f"""<div class="place-meta__time">
-            <div>{duration}</div>
-            <div class="place-meta__comment">{period}</div>
-        </div>"""
-    if name is not None or link is not None or description is not None:
-        result += f"""<div class="place-meta__organization">
-            <div>{name}</div>
-            <div>{black_link(link) if link else ''}</div>
-            <div class="place-meta__comment">{description}</div>
-        </div>"""
-    return mark_safe(f'<div class="place-meta">{result}</div>')
+
+    return {
+        "duration": duration,
+        "period": period,
+        "name": name,
+        "link": link,
+        "description": description,
+        "show_time": duration is not None or period is not None,
+        "show_organization": (
+            name is not None or link is not None or description is not None
+        ),
+    }
 
 
 @register.simple_tag
