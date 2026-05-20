@@ -68,8 +68,7 @@ p {
   font-style: italic;
 }
 
-.place-meta__comment,
-.row-with-icon__comment {
+.place-meta__comment {
   color: #555;
 }
 
@@ -105,17 +104,7 @@ p {
 }
 
 .row-with-icon {
-  display: flex;
-  gap: 8px;
   padding: 1px 0;
-}
-
-.row-with-icon__icon {
-  display: none;
-}
-
-.symbol-icon {
-  font-size: 20px;
 }
 
 .resume-actions {
