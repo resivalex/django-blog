@@ -1,222 +1,232 @@
 {% load resume_tags %}
 
-<div class="container">
+<div class="resume-page">
+    {% if not is_pdf %}
     <div class="resume-actions">
-        <a href="/Ivan_Reshetnikov_Senior_MLE.pdf">Download PDF</a>
+        <a href="/Ivan_Reshetnikov_Senior_ML_AI_Engineer.pdf">Download PDF</a>
     </div>
+    {% endif %}
 
-    <div class="main-header">Ivan Reshetnikov</div>
-
-    <p>
-        Senior ML / AI Engineer with 10+ years in software engineering and 5+ years in applied Data Science.<br><br>
-        I build production ML systems for real business problems: matching, ranking, duplicate detection, pricing, anomaly detection, forecasting, and LLM/RAG-assisted data workflows. I usually work end-to-end, from understanding the problem and defining metrics to building, deploying, and improving the system after release.<br><br>
-        GitHub: {% black_link url="https://github.com/resivalex" %}
-    </p>
-
-    <div class="position-block">
-    <div class="header">Senior ML Engineer</div>
-
-    {% output_place month_period="2024.08-present" name="Maksmart" link="https://maksmart.ru" description="B2B marketplace" %}
-
-    <p>
-        Building production ML systems for a B2B marketplace: product matching, duplicate detection, pricing, anomaly detection, catalog quality, delivery forecasting, and LLM/RAG-assisted data workflows.
-    </p>
-
-    <div class="sub-header">Selected outcomes:</div>
-    <p>
-        — Shipped 8 ML models to production across matching, pricing, catalog quality, and forecasting.<br>
-        — Built a product matching system that reduced unmatched supplier offers by 2x.<br>
-        — Developed duplicate scoring for implicit product duplicates, reducing duplicates by 60% at 95% precision.<br>
-        — Built price regression with confidence estimates to support supplier offer moderation.<br>
-        — Implemented price anomaly detection to identify unit-of-measure issues, data-entry errors, and suspicious supplier prices.<br>
-        — Implemented last-mile delivery time forecasting with under 15% error.<br>
-        — Designed LLM/RAG-assisted workflows for product type discovery, catalog maintenance, and data labeling.<br>
-        — Built data processing and data quality pipelines, reducing memory consumption by 5x.
-    </p>
-
-    <div class="sub-header">Technologies:</div>
-    {% output_maksmart_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">Data Scientist</div>
-
-    {% output_place month_period="2022.04-2024.07" name="Architech NYC" link="https://architech.nyc" description="Business services" %}
-
-    <p>
-        Built production ML, analytics, and automation tools for transportation and business operations: rate calculation, document validation, BI reporting, and email workflow automation.
-    </p>
-
-    <div class="sub-header">Selected outcomes:</div>
-    <p>
-        — Built a container transportation Rate Calculator with 11% RMSPE, monitoring, and regular retraining.<br>
-        — Developed an OCR-based document validation service with 95% precision, reducing dispatcher workload.<br>
-        — Built BI dashboards for transportation operations, improving visibility and reducing manual reporting.<br>
-        — Implemented an AI-assisted email handling system using ChatGPT API and business data integrations to reduce response times.<br>
-        — Investigated data consistency issues and prepared ad-hoc analyses for current business needs.
-    </p>
-
-    <div class="sub-header">Technologies:</div>
-    {% output_architech_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">Machine Learning Engineer</div>
-
-    {% output_place month_period="2020.12-2022.03" name="Sape" link="https://sape.ru" description="Backlinks purchase service" %}
-
-    <p>
-        Applied ML to SEO and search products operating on millions of documents: semantic search, topic classification, text similarity, and price recommendation.
-    </p>
-
-    <div class="sub-header">Selected outcomes:</div>
-    <p>
-        — Built a semantic backlink search system across millions of documents, reducing search latency from about 12 seconds to 3 seconds.<br>
-        — Replaced mostly tag-based or random backlink discovery with similarity-based recommendations.<br>
-        — Improved backlink suggestion relevance, contributing to positive user feedback and continued investment in the feature.<br>
-        — Developed topic classification, text similarity, and price recommendation models for SEO workflows.<br>
-        — Analyzed product usage and dissatisfaction signals to support SEO specialists and product decisions.
-    </p>
-
-    <div class="sub-header">Technologies:</div>
-    {% output_sape_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">Lead Ruby on Rails developer</div>
-
-    {% output_place month_period="2016.12-2020.11" name="OneRetarget.com" link="https://oneretarget.com" description="A service to manage several ad platforms at one account" %}
-
-    <p>
-        Led backend and full-stack development for an ad-tech product integrating multiple advertising platforms. Worked on technical decisions, API design, code review, testing, deployment, monitoring, and frontend modernization.
-    </p>
-
-    <div class="sub-header">Selected outcomes:</div>
-    <p>
-        — Adapted the API for both external users and frontend use, reducing duplicated integration logic.<br>
-        — Built tools for advertising analytics, moderation-state synchronization, and campaign management.<br>
-        — Added system problem-detection tooling to make operational issues easier to find and investigate.<br>
-        — Implemented interactive UI features such as weekly schedules, bulk copying, and ad previews.<br>
-        — Supported frontend migration from CoffeeScript/jQuery to ES6 and React.<br>
-        — Helped unify account-wide UI layout and styling.
-    </p>
-
-    <div class="sub-header">Technologies:</div>
-    {% output_oneretarget_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">Ruby on Rails developer</div>
-
-    {% output_place month_period="2016.04-2016.11" name="Lakehouse" link="http://www.lakehouse.ru" description="SaaS and in-house solutions" %}
-
-    <p>
-        Supported and developed Ruby on Rails applications for real estate process management and professional qualification workflows.
-    </p>
-
-    <p>
-        — Supported and developed a real estate process-management project.<br>
-        — Supported and developed a qualification/training project for beauty specialists.<br>
-        — Worked on backend features, tests, deployment, and legacy frontend maintenance.
-    </p>
-    <div class="sub-header">Technologies:</div>
-    {% output_lakehouse_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">Self-education</div>
-
-    {% output_place month_period="2016.02-2016.04" %}
-
-    <p>
-        Built and rebuilt small web applications while transitioning into Ruby on Rails development.
-    </p>
-
-    <p>
-        — Rebuilt a student progress tracking application in Ruby on Rails.<br>
-        — Developed a website for a trampoline center.
-    </p>
-
-    <div class="sub-header">Projects:</div>
-    <p>
-        {% black_link url="https://github.com/resivalex/student-progress-on-rails" %}<br>
-        {% black_link url="https://github.com/resivalex/zaskok" %}
-    </p>
-    <div class="sub-header">Technologies:</div>
-    {% output_selfeducation_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">Software developer</div>
-
-    {% output_place month_period="2015.04-2016.01" name="Nasca Ltd." link="http://piratetrade.ru" description="Exchange trading company" %}
-
-    <p>
-        Worked on web development and trading-related software in a Scrum team. Built backend features, contributed to C++ networking components, wrote unit tests, and participated in code review.
-    </p>
-
-    <p>
-        — Developed a public website from scratch.<br>
-        — Built parts of a multi-component network application for exchange-related workflows.<br>
-        — Implemented a component responsible for interaction with the exchange.<br>
-        — Contributed to Qt client design and implementation.<br>
-        — Added unit tests using the Catch framework.<br>
-        — Used design patterns and participated in code review.
-    </p>
-    <div class="sub-header">Technologies:</div>
-    {% output_piratetrade_2_tags %}
-    </div>
-
-    <div class="position-block">
-    <div class="header">C++/Qt developer</div>
-
-    {% output_place month_period="2012.12-2013.09" name="Nasca Ltd." link="http://piratetrade.ru" description="Exchange trading company" %}
-
-    <p>
-        Worked on trading-related desktop and backend tools, including trading engine improvements, log processing, exchange emulation, and automation utilities.
-    </p>
-
-    <p>
-        — Improved components of the trading engine.<br>
-        — Built tools for exchange log parsing and analysis.<br>
-        — Implemented features for transaction logging software.<br>
-        — Developed an exchange emulator for testing and development.<br>
-        — Added automated exchange log downloading and user email notifications.<br>
-        — Used version control in a small engineering team.
-    </p>
-    <div class="sub-header">Technologies:</div>
-    {% output_piratetrade_tags %}
-    </div>
-
-    <div class="header">Higher education</div>
-
-    <div class="row-with-icon">
-        <div class="row-with-icon__info">
-            <div>Pskov State University</div>
-            <div>2008 - 2013</div>
-            <div>Faculty of Informatics</div>
+    <header class="resume-header resume-block">
+        <div class="candidate-profile">
+            <h1>Ivan Reshetnikov</h1>
+            <div class="resume-title">Senior ML / AI Engineer</div>
         </div>
-    </div>
 
-    <div class="header">Languages</div>
+        <address class="contact-information">
+            <a href="mailto:resivalex@gmail.com">resivalex@gmail.com</a>
+            {% black_link url="https://www.linkedin.com/in/resivalex/" text="https://www.linkedin.com/in/resivalex" %}
+            {% black_link url="https://github.com/resivalex" %}
+        </address>
+    </header>
 
-    <div class="row-with-icon">
-        <div class="row-with-icon__info">
-            <div>Russian — Native</div>
-            <div>English — Upper Intermediate</div>
+    <section class="professional-summary resume-block">
+        <p>
+            Senior ML / AI Engineer with 10+ years in software engineering and 5+ years in applied Data Science.
+        </p>
+        <p>
+            I build production ML systems for real business problems: matching, ranking, duplicate detection, pricing, anomaly detection, forecasting, and LLM/RAG-assisted data workflows. I usually work end-to-end, from understanding the problem and defining metrics to building, deploying, and improving the system after release.
+        </p>
+    </section>
+
+    <section class="experience-section">
+        <h2>Work Experience</h2>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>Senior ML Engineer</h3>
+                    <div class="company-name">{% black_link url="https://maksmart.ru" text="Maksmart" %}</div>
+                </div>
+                <div class="experience-date">Aug 2024 - Present</div>
+            </div>
+
+            <p>
+                Building production ML systems for a B2B marketplace: product matching, duplicate detection, pricing, anomaly detection, catalog quality, delivery forecasting, and LLM/RAG-assisted data workflows.
+            </p>
+
+            <ul>
+                <li>Shipped 8 ML models to production across matching, pricing, catalog quality, and forecasting.</li>
+                <li>Built a product matching system that reduced unmatched supplier offers by 2x.</li>
+                <li>Developed duplicate scoring for implicit product duplicates, reducing duplicates by 60% at 95% precision.</li>
+                <li>Built price regression with confidence estimates to support supplier offer moderation.</li>
+                <li>Implemented price anomaly detection to identify unit-of-measure issues, data-entry errors, and suspicious supplier prices.</li>
+                <li>Implemented last-mile delivery time forecasting with under 15% error.</li>
+                <li>Designed LLM/RAG-assisted workflows for product type discovery, catalog maintenance, and data labeling.</li>
+                <li>Built data processing and data quality pipelines, reducing memory consumption by 5x.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>Data Scientist</h3>
+                    <div class="company-name">{% black_link url="https://architech.nyc" text="Architech NYC" %}</div>
+                </div>
+                <div class="experience-date">Apr 2022 - Jul 2024</div>
+            </div>
+
+            <p>
+                Built production ML, analytics, and automation tools for transportation and business operations: rate calculation, document validation, BI reporting, and email workflow automation.
+            </p>
+
+            <ul>
+                <li>Built a container transportation Rate Calculator with 11% RMSPE, monitoring, and regular retraining.</li>
+                <li>Developed an OCR-based document validation service with 95% precision, reducing dispatcher workload.</li>
+                <li>Built BI dashboards for transportation operations, improving visibility and reducing manual reporting.</li>
+                <li>Implemented an AI-assisted email handling system using ChatGPT API and business data integrations to reduce response times.</li>
+                <li>Investigated data consistency issues and prepared ad-hoc analyses for current business needs.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>Machine Learning Engineer</h3>
+                    <div class="company-name">{% black_link url="https://sape.ru" text="Sape" %}</div>
+                </div>
+                <div class="experience-date">Dec 2020 - Mar 2022</div>
+            </div>
+
+            <p>
+                Applied ML to SEO and search products operating on millions of documents: semantic search, topic classification, text similarity, and price recommendation.
+            </p>
+
+            <ul>
+                <li>Built a semantic backlink search system across millions of documents, reducing search latency from about 12 seconds to 3 seconds.</li>
+                <li>Replaced mostly tag-based or random backlink discovery with similarity-based recommendations.</li>
+                <li>Improved backlink suggestion relevance, contributing to positive user feedback and continued investment in the feature.</li>
+                <li>Developed topic classification, text similarity, and price recommendation models for SEO workflows.</li>
+                <li>Analyzed product usage and dissatisfaction signals to support SEO specialists and product decisions.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>Lead Ruby on Rails developer</h3>
+                    <div class="company-name">{% black_link url="https://sape.ru" text="Sape" %}</div>
+                </div>
+                <div class="experience-date">Dec 2016 - Nov 2020</div>
+            </div>
+
+            <p>
+                Led backend and full-stack development for an ad-tech product integrating multiple advertising platforms. Worked on technical decisions, API design, code review, testing, deployment, monitoring, and frontend modernization.
+            </p>
+
+            <ul>
+                <li>Adapted the API for both external users and frontend use, reducing duplicated integration logic.</li>
+                <li>Built tools for advertising analytics, moderation-state synchronization, and campaign management.</li>
+                <li>Added system problem-detection tooling to make operational issues easier to find and investigate.</li>
+                <li>Implemented interactive UI features such as weekly schedules, bulk copying, and ad previews.</li>
+                <li>Supported frontend migration from CoffeeScript/jQuery to ES6 and React.</li>
+                <li>Helped unify account-wide UI layout and styling.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>Ruby on Rails developer</h3>
+                    <div class="company-name">{% black_link url="http://www.lakehouse.ru" text="Lakehouse" %}</div>
+                </div>
+                <div class="experience-date">Apr 2016 - Nov 2016</div>
+            </div>
+
+            <p>
+                Supported and developed Ruby on Rails applications for real estate process management and professional qualification workflows.
+            </p>
+
+            <ul>
+                <li>Supported and developed a real estate process-management project.</li>
+                <li>Supported and developed a qualification/training project for beauty specialists.</li>
+                <li>Worked on backend features, tests, deployment, and legacy frontend maintenance.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>Software developer</h3>
+                    <div class="company-name">{% black_link url="http://piratetrade.ru" text="Nasca Ltd." %}</div>
+                </div>
+                <div class="experience-date">Apr 2015 - Jan 2016</div>
+            </div>
+
+            <p>
+                Worked on web development and trading-related software in a Scrum team. Built backend features, contributed to C++ networking components, wrote unit tests, and participated in code review.
+            </p>
+
+            <ul>
+                <li>Developed a public website from scratch.</li>
+                <li>Built parts of a multi-component network application for exchange-related workflows.</li>
+                <li>Implemented a component responsible for interaction with the exchange.</li>
+                <li>Contributed to Qt client design and implementation.</li>
+                <li>Added unit tests using the Catch framework.</li>
+                <li>Used design patterns and participated in code review.</li>
+            </ul>
+        </article>
+
+        <article class="experience-item resume-block">
+            <div class="experience-header">
+                <div>
+                    <h3>C++/Qt developer</h3>
+                    <div class="company-name">{% black_link url="http://piratetrade.ru" text="Nasca Ltd." %}</div>
+                </div>
+                <div class="experience-date">Dec 2012 - Sep 2013</div>
+            </div>
+
+            <p>
+                Worked on trading-related desktop and backend tools, including trading engine improvements, log processing, exchange emulation, and automation utilities.
+            </p>
+
+            <ul>
+                <li>Improved components of the trading engine.</li>
+                <li>Built tools for exchange log parsing and analysis.</li>
+                <li>Implemented features for transaction logging software.</li>
+                <li>Developed an exchange emulator for testing and development.</li>
+                <li>Added automated exchange log downloading and user email notifications.</li>
+                <li>Used version control in a small engineering team.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section class="skills-section resume-block">
+        <h2>Core Skills</h2>
+
+        <p><strong>Senior ML Engineer:</strong> {% output_maksmart_tags %}</p>
+        <p><strong>Data Scientist:</strong> {% output_architech_tags %}</p>
+        <p><strong>Machine Learning Engineer:</strong> {% output_sape_tags %}</p>
+        <p><strong>Lead Ruby on Rails developer:</strong> {% output_oneretarget_tags %}</p>
+        <p><strong>Ruby on Rails developer:</strong> {% output_lakehouse_tags %}</p>
+        <p><strong>Self-education:</strong> {% output_selfeducation_tags %}</p>
+        <p><strong>Software developer:</strong> {% output_piratetrade_2_tags %}</p>
+        <p><strong>C++/Qt developer:</strong> {% output_piratetrade_tags %}</p>
+    </section>
+
+    <section class="education-section resume-block">
+        <h2>Education</h2>
+
+        <div class="education-entry">
+            <div class="education-details">
+                <strong class="education-institution">Pskov State University</strong>
+                <div class="education-degree">
+                    <strong>Master's degree</strong>
+                    <span>Informatics <span class="education-specialization">(Information Systems and Technologies)</span></span>
+                </div>
+            </div>
+            <div class="education-date">2008 - 2013</div>
         </div>
-    </div>
+    </section>
 
-    <div class="header">Contacts</div>
+    <section class="languages-section resume-block">
+        <h2>Languages</h2>
 
-    <div class="row-with-icon">
-        <div class="row-with-icon__info">
-            <div>{% black_link url="https://www.linkedin.com/in/resivalex/" text="LinkedIn profile" %}</div>
-        </div>
-    </div>
-    <div class="row-with-icon">
-        <div class="row-with-icon__info">
-            <div>resivalex@gmail.com</div>
-        </div>
-    </div>
+        <p class="language-list">
+            <strong class="language-name">Russian</strong>
+            <span class="language-level">(Native)</span>,
+            <strong class="language-name">English</strong>
+            <span class="language-level">(Upper Intermediate)</span>
+        </p>
+    </section>
 </div>

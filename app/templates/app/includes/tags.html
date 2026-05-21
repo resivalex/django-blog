@@ -1,1 +1,1 @@
-{% for tag in tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+{% for tag in tags %}<span class="skill-keyword">{{ tag }}</span>{% if not forloop.last %}, {% endif %}{% endfor %}

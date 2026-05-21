@@ -1,12 +1,10 @@
 from django import template
 from django.utils.safestring import mark_safe
-from .period import Period
 
 register = template.Library()
 
 
 TAGS_TEMPLATE = "app/includes/tags.html"
-PLACE_TEMPLATE = "app/includes/place.html"
 
 
 def tags_context(tags):
@@ -173,36 +171,8 @@ def output_piratetrade_tags():
     return tags_context(piratetrade_tags())
 
 
-@register.inclusion_tag(PLACE_TEMPLATE)
-def output_place(
-    month_period=None,
-    duration=None,
-    name=None,
-    link=None,
-    description=None,
-):
-    period = None
-    if month_period is not None:
-        months = month_period.split("-")
-        period = Period(months[0], months[1])
-        duration = period.duration()
-        period = period.to_string()
-
-    return {
-        "duration": duration,
-        "period": period,
-        "name": name,
-        "link": link,
-        "description": description,
-        "show_time": duration is not None or period is not None,
-        "show_organization": (
-            name is not None or link is not None or description is not None
-        ),
-    }
-
-
 @register.simple_tag
 def black_link(url, text=None):
     if text is None:
         text = url
-    return mark_safe(f'<a target="_blank" class="black-link" href="{url}">{text}</a>')
+    return mark_safe(f'<a target="_blank" class="resume-link" href="{url}">{text}</a>')

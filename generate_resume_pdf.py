@@ -13,8 +13,6 @@ from django.conf import settings
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-RESUME_TEMPLATE = 'app/resume.html'
-RESUME_PDF_FILENAME = 'Ivan_Reshetnikov_Senior_MLE.pdf'
 
 if not settings.configured:
     settings.configure(
@@ -44,8 +42,7 @@ if not settings.configured:
 
 django.setup()
 
-from django.template.loader import render_to_string
-from weasyprint import HTML
+from app.resume_pdf import RESUME_PDF_FILENAME, write_resume_pdf
 
 
 def prepare_static_files():
@@ -55,16 +52,16 @@ def prepare_static_files():
 
     src_dir = os.path.join(BASE_DIR, 'app', 'static', 'app')
     for filename in os.listdir(src_dir):
-        shutil.copy(
-            os.path.join(src_dir, filename),
-            os.path.join(STATIC_ROOT, 'app', filename),
-        )
+        src_path = os.path.join(src_dir, filename)
+        dst_path = os.path.join(STATIC_ROOT, 'app', filename)
+        if os.path.isdir(src_path):
+            shutil.copytree(src_path, dst_path)
+        else:
+            shutil.copy(src_path, dst_path)
 
 
 def generate_pdf():
-    html_string = render_to_string(RESUME_TEMPLATE)
-    html = HTML(string=html_string, base_url=f"file://{BASE_DIR}/")
-    html.write_pdf(RESUME_PDF_FILENAME)
+    write_resume_pdf(base_url=f"file://{BASE_DIR}/", target=RESUME_PDF_FILENAME)
     print(f"Generated {RESUME_PDF_FILENAME}")
 
 

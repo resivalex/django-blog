@@ -1,10 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.template.loader import render_to_string
-from weasyprint import HTML
 
-RESUME_TEMPLATE = "app/resume.html"
-RESUME_PDF_FILENAME = "Ivan_Reshetnikov_Senior_MLE.pdf"
+from app.resume_pdf import RESUME_PDF_FILENAME, RESUME_TEMPLATE, write_resume_pdf
 
 
 def home(request):
@@ -12,9 +9,8 @@ def home(request):
 
 
 def resume_pdf(request):
-    html_string = render_to_string(RESUME_TEMPLATE, request=request)
     base_url = request.build_absolute_uri('/')
-    pdf = HTML(string=html_string, base_url=base_url).write_pdf()
+    pdf = write_resume_pdf(base_url=base_url, request=request)
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="{RESUME_PDF_FILENAME}"'
     return response
@@ -28,6 +24,21 @@ def styles(_request):
 def favicon(_request):
     png = open("app/static/app/favicon.png", "rb").read()
     return HttpResponse(png, content_type="image/png")
+
+
+FONT_CONTENT_TYPES = {
+    "ttf": "font/ttf",
+    "woff": "font/woff",
+    "woff2": "font/woff2",
+    "otf": "font/otf",
+}
+
+
+def font(_request, filename):
+    ext = filename.rsplit(".", 1)[-1].lower()
+    content_type = FONT_CONTENT_TYPES.get(ext, "application/octet-stream")
+    data = open(f"app/static/app/fonts/{filename}", "rb").read()
+    return HttpResponse(data, content_type=content_type)
 
 
 def yandex_verification(_request):
