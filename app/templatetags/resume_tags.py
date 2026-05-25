@@ -4,171 +4,158 @@ from django.utils.safestring import mark_safe
 register = template.Library()
 
 
-TAGS_TEMPLATE = "app/includes/tags.html"
-
-
-def tags_context(tags):
-    return {"tags": tags}
-
-
-def maksmart_tags():
+def core_skill_areas():
     return [
-        "Python",
-        "PyTorch",
-        "scikit-learn",
-        "LightGBM",
-        "fastText",
-        "AutoML",
-        "Active Learning",
-        "LLM/RAG",
-        "embeddings",
-        "FastAPI",
-        "Docker",
-        "PostgreSQL",
-        "ClickHouse",
+        {
+            "title": "Machine Learning & Modeling",
+            "skills": [
+                "Python",
+                "PyTorch",
+                "scikit-learn",
+                "LightGBM",
+                "feature engineering",
+                "gradient boosting",
+                "regression",
+                "classification",
+                "clustering",
+                "metric learning",
+                "embeddings",
+                "fastText",
+                "sentence-transformers",
+                "active learning",
+                "AutoML",
+                "Optuna",
+                "calibration",
+                "model evaluation",
+            ],
+        },
+        {
+            "title": "Production ML & MLOps",
+            "skills": [
+                "MLOps",
+                "model deployment",
+                "model monitoring",
+                "scheduled retraining",
+                "validation gates",
+                "fallback strategy",
+                "model versioning",
+                "CI/CD",
+                "GitLab CI",
+                "automated testing",
+                "Docker",
+                "FastAPI",
+                "PostgreSQL",
+                "ClickHouse",
+                "SQL",
+                "pytest",
+            ],
+        },
+        {
+            "title": "Search, Matching & Ranking",
+            "skills": [
+                "product matching",
+                "duplicate detection",
+                "information retrieval",
+                "semantic search",
+                "similarity search",
+                "vector search",
+                "candidate generation",
+                "approximate nearest neighbor search",
+                "reranking",
+                "pairwise features",
+                "fuzzy matching",
+                "FAISS",
+                "Elasticsearch",
+                "ranking metrics",
+                "precision-recall analysis",
+            ],
+        },
+        {
+            "title": "LLM / RAG & AI Data Workflows",
+            "skills": [
+                "Large Language Models (LLMs)",
+                "Retrieval-Augmented Generation (RAG)",
+                "OpenAI API",
+                "Google Vertex AI",
+                "prompt engineering",
+                "structured extraction",
+                "JSON schema",
+                "tool calling",
+                "LLM evaluation",
+                "embedding-based retrieval",
+                "automated data labeling",
+                "human-in-the-loop workflows",
+            ],
+        },
+        {
+            "title": "Anomaly Detection, Pricing & Forecasting",
+            "skills": [
+                "anomaly detection",
+                "price anomaly detection",
+                "anomaly scoring",
+                "price regression",
+                "uncertainty estimation",
+                "confidence scoring",
+                "quantile regression",
+                "calibration",
+                "forecasting",
+                "delivery time forecasting",
+                "time-aware validation",
+                "temporal features",
+            ],
+        },
+        {
+            "title": "Data Engineering & Analytics",
+            "skills": [
+                "Pandas",
+                "NumPy",
+                "Parquet",
+                "batching",
+                "sharding",
+                "in-database computation",
+                "scheduled pipelines",
+                "Celery",
+                "Apache Superset",
+                "Power BI",
+                "data quality analysis",
+            ],
+        },
+        {
+            "title": "Software Engineering & Observability",
+            "skills": [
+                "backend engineering",
+                "Python application architecture",
+                "API design",
+                "REST APIs",
+                "system integration",
+                "Pydantic",
+                "type hints",
+                "mypy",
+                "testing",
+                "code review",
+                "Sentry",
+                "Grafana",
+                "C++",
+                "Ruby on Rails",
+            ],
+        },
+        {
+            "title": "Technical Ownership & Delivery",
+            "skills": [
+                "requirements clarification",
+                "metric definition",
+                "ML pipeline architecture",
+                "technical decision-making",
+                "stakeholder communication",
+                "business trade-off analysis",
+            ],
+        },
     ]
 
 
-def architech_tags():
-    return [
-        "Python",
-        "LightGBM",
-        "PyTorch",
-        "Streamlit",
-        "FastAPI",
-        "PostgreSQL",
-        "Docker",
-        "Apache Superset",
-        "ChatGPT API",
-        "pytest",
-    ]
-
-
-def sape_tags():
-    return [
-        "Python",
-        "scikit-learn",
-        "fastText",
-        "word2vec",
-        "Gensim",
-        "Pandas",
-        "NumPy",
-        "ClickHouse",
-        "Flask",
-        "pytest",
-        "Jupyter",
-        "Power BI",
-    ]
-
-
-def oneretarget_tags():
-    return [
-        "Ruby on Rails",
-        "PostgreSQL",
-        "RSpec",
-        "Cucumber",
-        "Capybara",
-        "Docker",
-        "Jenkins",
-        "Capistrano",
-        "React",
-        "ES6",
-        "Redux",
-    ]
-
-
-def lakehouse_tags():
-    return [
-        "Ruby on Rails 4",
-        "PostgreSQL",
-        "RSpec",
-        "Capybara",
-        "Capistrano",
-        "Linux",
-        "AngularJS",
-        "CoffeeScript",
-    ]
-
-
-def selfeducation_tags():
-    return [
-        "Ruby on Rails",
-        "RSpec",
-        "Linux",
-        "Capistrano",
-        "AngularJS",
-        "CoffeeScript",
-        "PHP",
-        "HTML",
-        "SASS",
-        "MySQL",
-        "D3.js",
-        "SVG",
-    ]
-
-
-def piratetrade_2_tags():
-    return [
-        "Ruby on Rails 4",
-        "Ruby Slim",
-        "JavaScript",
-        "CSS",
-        "SASS",
-        "Bootstrap",
-        "AJAX",
-        "C++",
-        "Boost Thread",
-        "WebSocket",
-        "JSON",
-        "Catch",
-        "JIRA",
-        "Confluence",
-        "Git",
-    ]
-
-
-def piratetrade_tags():
-    return ["C++", "C++ Standard Library", "Qt", "JavaScript", "jQuery", "HTML", "SVN"]
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_maksmart_tags():
-    return tags_context(maksmart_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_architech_tags():
-    return tags_context(architech_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_sape_tags():
-    return tags_context(sape_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_oneretarget_tags():
-    return tags_context(oneretarget_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_lakehouse_tags():
-    return tags_context(lakehouse_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_selfeducation_tags():
-    return tags_context(selfeducation_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_piratetrade_2_tags():
-    return tags_context(piratetrade_2_tags())
-
-
-@register.inclusion_tag(TAGS_TEMPLATE)
-def output_piratetrade_tags():
-    return tags_context(piratetrade_tags())
+@register.inclusion_tag("app/includes/core_skill_areas.html")
+def output_core_skill_areas():
+    return {"areas": core_skill_areas()}
 
 
 @register.simple_tag
