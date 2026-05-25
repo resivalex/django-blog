@@ -59,24 +59,12 @@ p {
 
 ul {
   margin: 7px 0 15px;
-  padding-left: 16px;
-  list-style: none;
+  padding-left: 19px;
+  list-style: disc outside;
 }
 
 li {
   margin: 0 0 3px;
-  position: relative;
-}
-
-li::before {
-  content: "";
-  position: absolute;
-  top: 0.73em;
-  left: -16px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #333;
 }
 
 .resume-page {
@@ -119,10 +107,7 @@ li::before {
 }
 
 .resume-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 32px;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .resume-header h1 {
@@ -135,25 +120,22 @@ li::before {
 }
 
 .resume-title {
+  margin: 0 0 10px;
   font-size: 21px;
   line-height: 1.25;
 }
 
 .contact-information {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
-  min-width: 290px;
-  margin: 3px 0 0;
+  margin: 0;
   font-size: 14px;
-  font-style: italic;
-  line-height: 1.25;
+  font-style: normal;
+  line-height: 1.35;
 }
 
 .contact-information a {
   color: #333 !important;
   text-decoration: none !important;
+  overflow-wrap: anywhere;
 }
 
 .professional-summary {
@@ -179,15 +161,7 @@ section + section {
   page-break-inside: auto;
 }
 
-.experience-header,
-.education-entry {
-  display: flex;
-  justify-content: space-between;
-  gap: 28px;
-  margin-bottom: 18px;
-}
-
-.experience-header h3 {
+.experience-item h3 {
   margin: 0 0 0;
   color: #333;
   font-size: 18px;
@@ -196,21 +170,29 @@ section + section {
   letter-spacing: 0;
 }
 
+.company-name,
+.experience-date,
+.education-date {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
 .company-name {
-  margin-top: 1px;
-  font-size: 16px;
-  font-style: italic;
-  line-height: 1.25;
+  margin: 2px 0 0;
 }
 
 .experience-date,
 .education-date {
-  min-width: 230px;
-  color: #333;
-  font-size: 16px;
-  line-height: 1.35;
-  text-align: right;
   white-space: nowrap;
+}
+
+.experience-date {
+  margin: 0 0 14px;
+}
+
+.education-date {
+  margin-top: 2px;
 }
 
 .education-section {
@@ -218,11 +200,7 @@ section + section {
 }
 
 .education-entry {
-  align-items: flex-start;
   margin-bottom: 0;
-}
-
-.education-details {
   line-height: 1.35;
 }
 
@@ -238,7 +216,7 @@ section + section {
 }
 
 .education-degree strong {
-  margin-right: 8px;
+  margin-right: 0;
 }
 
 .education-specialization {
@@ -277,6 +255,11 @@ section + section {
   border: 0;
   padding: 0;
   margin: 0;
+  white-space: nowrap;
+}
+
+.text-nowrap {
+  white-space: nowrap;
 }
 
 .resume-link {
@@ -291,26 +274,6 @@ section + section {
   .resume-page {
     padding: 34px 22px 0;
   }
-
-  .resume-header,
-  .experience-header,
-  .education-entry {
-    display: block;
-  }
-
-  .contact-information {
-    align-items: flex-start;
-    min-width: 0;
-    margin-top: 16px;
-  }
-
-  .experience-date,
-  .education-date {
-    min-width: 0;
-    margin-top: 6px;
-    text-align: left;
-  }
-
 }
 
 @page {
