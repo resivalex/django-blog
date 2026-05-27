@@ -138,6 +138,10 @@ li {
   overflow-wrap: anywhere;
 }
 
+.contact-information .resume-link {
+  text-decoration: underline !important;
+}
+
 .professional-summary {
   margin-bottom: 31px;
 }
@@ -180,6 +184,10 @@ section + section {
 
 .company-name {
   margin: 2px 0 0;
+}
+
+.company-name .resume-link {
+  text-decoration-thickness: 0.05em;
 }
 
 .experience-date,
@@ -263,7 +271,7 @@ section + section {
 }
 
 .resume-link {
-  color: #06c !important;
+  color: #333 !important;
 }
 
 @media (max-width: 720px) {
