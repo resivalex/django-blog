@@ -11,6 +11,7 @@ def core_skill_areas():
             "skills": [
                 "Python",
                 "machine learning algorithms",
+                "statistics",
                 "PyTorch",
                 "scikit-learn",
                 "LightGBM",
@@ -129,6 +130,7 @@ def core_skill_areas():
         {
             "title": "Software Engineering & Observability",
             "skills": [
+                "programming",
                 "backend engineering",
                 "Python application architecture",
                 "computer science fundamentals",
