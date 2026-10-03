@@ -10,10 +10,10 @@
     </nav>
 
     <article class="post">
+        <img class="post-image" src="/static/app/posts/{{ post.image }}" alt="{{ post.alt }}">
         <h1>{{ post.title }}</h1>
         <p class="post-date">{{ post.date|date:"j M Y" }}</p>
         <div class="post-body">{{ post.body|urlize }}</div>
-        <img class="post-image" src="/static/app/posts/{{ post.image }}" alt="{{ post.alt }}">
     </article>
 </div>
 {% endblock %}

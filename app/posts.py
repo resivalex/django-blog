@@ -117,3 +117,6 @@ One verified boundary at a time — the taxonomy kept growing.""",
 ]
 
 POSTS_BY_SLUG = {post["slug"]: post for post in POSTS}
+
+for post in POSTS:
+    post["excerpt"] = post["body"].split("\n\n")[0]
