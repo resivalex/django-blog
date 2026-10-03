@@ -3,5 +3,213 @@
 {% block title %}Ivan Reshetnikov | Machine Learning Engineer &amp; AI Engineer{% endblock %}
 
 {% block body %}
-    {% include 'app/resume-body.html' %}
+    <div class="resume-page">
+        {% if not is_pdf %}
+        <div class="resume-actions">
+            <a class="pdf-button" href="/Ivan_Reshetnikov_ML_AI_Engineer.pdf">Download PDF</a>
+            <a href="/posts/">Posts</a>
+        </div>
+        {% endif %}
+
+        <header class="resume-header resume-block">
+            <h1>Ivan Reshetnikov</h1>
+            <p class="resume-title">Machine Learning Engineer &amp; AI Engineer</p>
+
+            <address class="contact-information">
+                Belgrade, Serbia |
+                <a class="resume-link" target="_blank" href="mailto:resivalex@gmail.com">resivalex@<strong>gmail</strong>.com</a> |
+                <a class="resume-link" target="_blank" href="https://www.linkedin.com/in/resivalex/"><strong>linkedin</strong>.com/in/resivalex</a> |
+                <a class="resume-link" target="_blank" href="https://github.com/resivalex"><strong>github</strong>.com/resivalex</a>
+            </address>
+        </header>
+
+        <section class="professional-summary resume-block">
+            <h2>Professional Summary</h2>
+
+            <p>
+                ML engineer with 5+ years shipping models to production and building LLM workflows since 2023. At a B2B marketplace with 15M supplier offers, I built a matching pipeline that halved the offers hidden from customers at over 99% precision.
+            </p>
+            <p>
+                As an AI engineer, I build LLM applications with evaluation, guardrails, and human-in-the-loop controls. I take projects end-to-end, from the business cost of errors to deployment and monitoring in production.
+            </p>
+        </section>
+
+        <section class="experience-section">
+            <h2>Work Experience</h2>
+
+            <article class="experience-item resume-block">
+                <h3>Senior Machine Learning Engineer</h3>
+                <p class="company-name"><a class="resume-link" target="_blank" href="https://maksmart.ru">Maksmart</a></p>
+                <p class="experience-date">Aug 2024 - Apr 2026</p>
+
+                <p>
+                    Production ML and LLM systems for a B2B marketplace: 3M product cards, 15M supplier offers, 300K offer updates a day. Shipped 8 models to production across matching, catalog quality, pricing, and forecasting.
+                </p>
+
+                <ul>
+                    <li>Halved the number of supplier offers hidden from customers, matching them to product cards at precision above 99% with fastText retrieval and LightGBM reranking.</li>
+                    <li>Cut non-obvious duplicate product cards by 60% at 95% precision, merging them with an attention-based PyTorch scorer and graph-based grouping.</li>
+                    <li>Assigned product types to several million product cards using metric learning and LLM + RAG labeling, enabling grouping beyond existing catalog categories.</li>
+                    <li>Scored every incoming supplier offer for price anomalies so moderators reviewed the riskiest first, using a LightGBM ensemble with uncertainty estimates.</li>
+                    <li>Replaced fixed delivery estimates with data-driven targets for carriers, including routes without shipment history, while reducing a combined score of error and bias by 28%.</li>
+                </ul>
+
+                <p>
+                    Core technologies: Python, PyTorch, LightGBM, scikit-learn, fastText, Elasticsearch, LLM + RAG, FastAPI, Docker, Kubernetes, PostgreSQL, ClickHouse.
+                </p>
+            </article>
+
+            <article class="experience-item resume-block">
+                <h3>Data Scientist</h3>
+                <p class="company-name"><a class="resume-link" target="_blank" href="https://architech.nyc">Architech NYC</a></p>
+                <p class="experience-date">Apr 2022 - Jul 2024</p>
+
+                <p>
+                    Only developer on each ML and LLM project for a container transportation company, working with the owner and dispatchers from requirements to production: rate calculation, email handling, document checks, and reporting.
+                </p>
+
+                <ul>
+                    <li>Built a rate suggestion service that dispatchers used for customer quotes, at 11% RMSPE on future periods, with daily retraining gated by validation.</li>
+                    <li>Sped up email replies with an LLM assistant that pulled shipment data and calculator rates, sending status updates automatically and drafting quotes for review.</li>
+                    <li>Automated driver document validation with OCR, signature detection, and cross-checks against internal shipment records, sending uncertain cases to dispatcher review.</li>
+                    <li>Let the owner track operations with Apache Superset dashboards, from late drivers and container yard time to order volumes and sales rep performance.</li>
+                </ul>
+            </article>
+
+            <article class="experience-item resume-block">
+                <h3>Machine Learning Engineer</h3>
+                <p class="company-name"><a class="resume-link" target="_blank" href="https://sape.ru">Sape</a></p>
+                <p class="experience-date">Dec 2020 - Mar 2022</p>
+
+                <p>
+                    ML for SEO, search, and ad exchange products, with three models shipped to production.
+                </p>
+
+                <ul>
+                    <li>Replaced tag-based and random backlink discovery with embedding-based semantic search that got positive user feedback and further company investment.</li>
+                    <li>Shipped the search over 48M pages as a Docker service with an HTTP API that the backlink marketplace team deployed and ran in their product.</li>
+                    <li>Assigned topics to publisher sites automatically across 68 categories, using fastText embeddings and logistic regression served through FastAPI.</li>
+                    <li>Replaced a model that recommended the minimum price for 55% of publisher sites with a combined site score and a price curve fitted on past deals.</li>
+                </ul>
+            </article>
+
+            <article class="experience-item resume-block">
+                <h3>Ruby on Rails Developer</h3>
+                <p class="company-name"><a class="resume-link" target="_blank" href="https://sape.ru">Sape</a></p>
+                <p class="experience-date">Dec 2016 - Nov 2020</p>
+
+                <p>
+                    Backend for a self-service ad platform running campaigns across Facebook, Google Ads, VK, and myTarget.
+                </p>
+
+                <ul>
+                    <li>Kept campaign statuses and spend in sync with each ad network's API so that client balances were charged correctly.</li>
+                    <li>Unified the API for external users and the frontend, removing duplicated integration logic.</li>
+                    <li>Moved CI and hosting from a compromised Jenkins server to self-hosted GitLab with configuration in the repository.</li>
+                </ul>
+            </article>
+
+            <article class="experience-item resume-block">
+                <h3>Earlier Experience</h3>
+
+                <ul>
+                    <li><strong>Ruby on Rails Developer</strong>, <a class="resume-link" target="_blank" href="https://ord-in.com/">ORDIN</a>, Apr 2016 - Nov 2016: Rails apps for real estate and qualification workflows.</li>
+                    <li><strong>Software Engineer</strong>, <a class="resume-link" target="_blank" href="https://www.nasca-it.ru/">Nasca LTD</a>, Dec 2012 - Sep 2013 and Apr 2015 - Jan 2016: <span class="text-nowrap">C++</span> trading systems.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="skills-section resume-block">
+            <h2>Core Skills</h2>
+
+            <p><strong>Machine Learning:</strong>
+                <span class="text-nowrap">Python</span>,
+                <span class="text-nowrap">PyTorch</span>,
+                <span class="text-nowrap">LightGBM</span>,
+                <span class="text-nowrap">scikit-learn</span>,
+                <span class="text-nowrap">gradient boosting</span>,
+                <span class="text-nowrap">NLP</span>,
+                <span class="text-nowrap">embeddings</span>,
+                <span class="text-nowrap">fastText</span>,
+                <span class="text-nowrap">metric learning</span>,
+                <span class="text-nowrap">active learning</span>,
+                <span class="text-nowrap">anomaly detection</span>,
+                <span class="text-nowrap">forecasting</span>,
+                <span class="text-nowrap">uncertainty estimation</span>,
+                <span class="text-nowrap">model evaluation</span></p>
+
+            <p><strong>Search, Matching &amp; Ranking:</strong>
+                <span class="text-nowrap">information retrieval</span>,
+                <span class="text-nowrap">semantic search</span>,
+                <span class="text-nowrap">vector search</span>,
+                <span class="text-nowrap">candidate generation</span>,
+                <span class="text-nowrap">reranking</span>,
+                <span class="text-nowrap">product matching</span>,
+                <span class="text-nowrap">duplicate detection</span>,
+                <span class="text-nowrap">Elasticsearch</span>,
+                <span class="text-nowrap">FAISS</span></p>
+
+            <p><strong>LLM &amp; RAG:</strong>
+                <span class="text-nowrap">Large Language Models (LLMs)</span>,
+                <span class="text-nowrap">Retrieval-Augmented Generation (RAG)</span>,
+                <span class="text-nowrap">agent workflows</span>,
+                <span class="text-nowrap">tool calling</span>,
+                <span class="text-nowrap">MCP</span>,
+                <span class="text-nowrap">structured output</span>,
+                <span class="text-nowrap">prompt engineering</span>,
+                <span class="text-nowrap">LLM evaluation</span>,
+                <span class="text-nowrap">guardrails</span>,
+                <span class="text-nowrap">human-in-the-loop</span>,
+                <span class="text-nowrap">OpenAI API</span>,
+                <span class="text-nowrap">Claude Code</span></p>
+
+            <p><strong>Production &amp; Engineering:</strong>
+                <span class="text-nowrap">FastAPI</span>,
+                <span class="text-nowrap">Docker</span>,
+                <span class="text-nowrap">Kubernetes</span>,
+                <span class="text-nowrap">Google Cloud Platform (GCP)</span>,
+                <span class="text-nowrap">CI/CD</span>,
+                <span class="text-nowrap">model deployment</span>,
+                <span class="text-nowrap">model monitoring</span>,
+                <span class="text-nowrap">scheduled retraining</span>,
+                <span class="text-nowrap">Airflow</span>,
+                <span class="text-nowrap">PostgreSQL</span>,
+                <span class="text-nowrap">ClickHouse</span>,
+                <span class="text-nowrap">SQL</span>,
+                <span class="text-nowrap">Pandas</span>,
+                <span class="text-nowrap">Sentry</span></p>
+        </section>
+
+        <section class="certifications-section resume-block">
+            <h2>Certifications</h2>
+
+            <article class="experience-item">
+                <p class="company-name"><a class="resume-link" target="_blank" href="https://www.credly.com/badges/5f3c8d93-f48b-4e28-b343-ad25bf4b4778">Claude Certified Architect &ndash; Foundations</a> by Anthropic (Aug 2026)</p>
+            </article>
+        </section>
+
+        <section class="education-section resume-block">
+            <h2>Education</h2>
+
+            <div class="education-entry">
+                <strong class="education-institution">Pskov State University</strong>
+                <div class="education-degree">
+                    <strong>Master's degree,</strong>
+                    <span>Information Systems and Technologies</span>
+                </div>
+                <div class="education-date">2008 - 2013</div>
+            </div>
+        </section>
+
+        <section class="languages-section resume-block">
+            <h2>Languages</h2>
+
+            <p class="language-list">
+                <strong class="language-name">English</strong>
+                <span class="language-level">(Professional working proficiency)</span>,
+                <strong class="language-name">Russian</strong>
+                <span class="language-level">(Native)</span>
+            </p>
+        </section>
+    </div>
 {% endblock %}

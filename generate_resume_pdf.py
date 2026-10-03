@@ -7,12 +7,11 @@ Usage:
 """
 
 import os
-import shutil
 import django
 from django.conf import settings
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_DIR = os.path.join(BASE_DIR, 'app', 'static')
 
 if not settings.configured:
     settings.configure(
@@ -36,8 +35,7 @@ if not settings.configured:
                 },
             },
         ],
-        STATIC_URL=STATIC_ROOT + '/',
-        STATIC_ROOT=STATIC_ROOT,
+        STATIC_URL=STATIC_DIR + '/',
     )
 
 django.setup()
@@ -45,38 +43,10 @@ django.setup()
 from app.resume_pdf import RESUME_PDF_FILENAME, write_resume_pdf
 
 
-def prepare_static_files():
-    if os.path.exists(STATIC_ROOT):
-        shutil.rmtree(STATIC_ROOT)
-    os.makedirs(os.path.join(STATIC_ROOT, 'app'))
-
-    src_dir = os.path.join(BASE_DIR, 'app', 'static', 'app')
-    for filename in os.listdir(src_dir):
-        src_path = os.path.join(src_dir, filename)
-        dst_path = os.path.join(STATIC_ROOT, 'app', filename)
-        if os.path.isdir(src_path):
-            shutil.copytree(src_path, dst_path)
-        else:
-            shutil.copy(src_path, dst_path)
-
-
 def generate_pdf():
     write_resume_pdf(base_url=f"file://{BASE_DIR}/", target=RESUME_PDF_FILENAME)
     print(f"Generated {RESUME_PDF_FILENAME}")
 
 
-def cleanup():
-    if os.path.exists(STATIC_ROOT):
-        shutil.rmtree(STATIC_ROOT)
-
-
-def main():
-    prepare_static_files()
-    try:
-        generate_pdf()
-    finally:
-        cleanup()
-
-
 if __name__ == '__main__':
-    main()
+    generate_pdf()

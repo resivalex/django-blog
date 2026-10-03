@@ -1,4 +1,4 @@
-# ponytail: posts live in code, same as the skill list in resume_tags; move to the DB if they get frequent.
+# ponytail: posts live in code; move to the DB if they get frequent.
 from datetime import date
 
 POSTS = [
