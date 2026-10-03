@@ -3,13 +3,13 @@
 <div class="resume-page">
     {% if not is_pdf %}
     <div class="resume-actions">
-        <a href="/Ivan_Reshetnikov_Senior_ML_AI_Engineer.pdf">Download PDF</a>
+        <a href="/Ivan_Reshetnikov_ML_AI_Engineer.pdf">Download PDF</a>
     </div>
     {% endif %}
 
     <header class="resume-header resume-block">
         <h1>Ivan Reshetnikov</h1>
-        <p class="resume-title">Senior ML / AI Engineer</p>
+        <p class="resume-title">Machine Learning Engineer &amp; AI Engineer</p>
 
         <address class="contact-information">
             Belgrade, Serbia |
@@ -23,10 +23,10 @@
         <h2>Professional Summary</h2>
 
         <p>
-            Senior ML / AI Engineer with 10+ years in software engineering, including 5+ years in applied machine learning.
+            ML engineer with 5+ years shipping models to production and building LLM workflows since 2023. At a B2B marketplace with 15M supplier offers, I built a matching pipeline that halved the offers hidden from customers at over 99% precision.
         </p>
         <p>
-            I build production ML systems for real business problems: matching, ranking, duplicate detection, pricing, anomaly detection, forecasting, and LLM/RAG automation. I usually work end-to-end, from understanding the problem and defining metrics to building, deploying, and improving the system after release.
+            As an AI engineer, I build LLM applications with evaluation, guardrails, and human-in-the-loop controls. I take projects end-to-end, from the business cost of errors to deployment and monitoring in production.
         </p>
     </section>
 
@@ -34,24 +34,25 @@
         <h2>Work Experience</h2>
 
         <article class="experience-item resume-block">
-            <h3>Senior ML Engineer</h3>
+            <h3>Senior Machine Learning Engineer</h3>
             <p class="company-name">{% black_link url="https://maksmart.ru" text="Maksmart" %}</p>
             <p class="experience-date">Aug 2024 - Apr 2026</p>
 
             <p>
-                Built production ML systems for a B2B marketplace: product matching, duplicate detection, pricing, anomaly detection, catalog quality, delivery forecasting, and LLM/RAG-assisted data workflows.
+                Production ML and LLM systems for a B2B marketplace: 3M product cards, 15M supplier offers, 300K offer updates a day. Shipped 8 models to production across matching, catalog quality, pricing, and forecasting.
             </p>
 
             <ul>
-                <li>Shipped 8 ML models to production across matching, pricing, catalog quality, and forecasting.</li>
-                <li>Built a product matching system that reduced unmatched supplier offers by 2x.</li>
-                <li>Developed duplicate scoring that reduced implicit product duplicates by 60% at 95% precision.</li>
-                <li>Built price regression with uncertainty estimates to support supplier offer moderation.</li>
-                <li>Implemented price anomaly detection to identify unit-of-measure issues, data-entry errors, and suspicious supplier prices.</li>
-                <li>Implemented last-mile delivery time forecasting with under 15% error.</li>
-                <li>Automated type definition, merge decisions, and data labeling with an LLM/RAG workflow, supporting product type discovery across the majority of the catalog.</li>
-                <li>Optimized data processing and data quality pipelines, reducing memory consumption by 5x.</li>
+                <li>Halved the number of supplier offers hidden from customers, matching them to product cards at precision above 99% with fastText retrieval and LightGBM reranking.</li>
+                <li>Cut non-obvious duplicate product cards by 60% at 95% precision, merging them with an attention-based PyTorch scorer and graph-based grouping.</li>
+                <li>Assigned product types to several million product cards using metric learning and LLM + RAG labeling, enabling grouping beyond existing catalog categories.</li>
+                <li>Scored every incoming supplier offer for price anomalies so moderators reviewed the riskiest first, using a LightGBM ensemble with uncertainty estimates.</li>
+                <li>Replaced fixed delivery estimates with data-driven targets for carriers, including routes without shipment history, while reducing a combined score of error and bias by 28%.</li>
             </ul>
+
+            <p>
+                Core technologies: Python, PyTorch, LightGBM, scikit-learn, fastText, Elasticsearch, LLM + RAG, FastAPI, Docker, Kubernetes, PostgreSQL, ClickHouse.
+            </p>
         </article>
 
         <article class="experience-item resume-block">
@@ -60,15 +61,14 @@
             <p class="experience-date">Apr 2022 - Jul 2024</p>
 
             <p>
-                Built production ML, analytics, and automation tools for transportation and business operations: rate calculation, document validation, BI reporting, and email workflow automation.
+                Only developer on each ML and LLM project for a container transportation company, working with the owner and dispatchers from requirements to production: rate calculation, email handling, document checks, and reporting.
             </p>
 
             <ul>
-                <li>Built a container transportation Rate Calculator with 11% RMSPE, monitoring, and regular retraining.</li>
-                <li>Developed an OCR-based document validation service with 95% precision, reducing dispatcher workload.</li>
-                <li>Built BI dashboards for transportation operations, improving visibility and reducing manual reporting.</li>
-                <li>Automated email handling with the ChatGPT API, answering status requests and drafting rate quotes for dispatcher approval.</li>
-                <li>Investigated data consistency issues and prepared ad-hoc analyses for current business needs.</li>
+                <li>Built a rate suggestion service that dispatchers used for customer quotes, at 11% RMSPE on future periods, with daily retraining gated by validation.</li>
+                <li>Sped up email replies with an LLM assistant that pulled shipment data and calculator rates, sending status updates automatically and drafting quotes for review.</li>
+                <li>Automated driver document validation with OCR, signature detection, and cross-checks against internal shipment records, sending uncertain cases to dispatcher review.</li>
+                <li>Let the owner track operations with Apache Superset dashboards, from late drivers and container yard time to order volumes and sales rep performance.</li>
             </ul>
         </article>
 
@@ -78,77 +78,40 @@
             <p class="experience-date">Dec 2020 - Mar 2022</p>
 
             <p>
-                Applied ML to SEO and search products operating on millions of documents: semantic search, topic classification, text similarity, and price recommendation.
+                ML for SEO, search, and ad exchange products, with three models shipped to production.
             </p>
 
             <ul>
-                <li>Built a semantic backlink search system across millions of documents, achieving a 4x speedup through ClickHouse sharding.</li>
-                <li>Replaced mostly tag-based or random backlink discovery with similarity-based recommendations.</li>
-                <li>Improved backlink suggestion relevance, contributing to positive user feedback and continued investment in the feature.</li>
-                <li>Developed topic classification, text similarity, and price recommendation models for SEO workflows.</li>
-                <li>Analyzed product usage and dissatisfaction signals to support SEO specialists and product decisions.</li>
+                <li>Replaced tag-based and random backlink discovery with embedding-based semantic search that got positive user feedback and further company investment.</li>
+                <li>Shipped the search over 48M pages as a Docker service with an HTTP API that the backlink marketplace team deployed and ran in their product.</li>
+                <li>Assigned topics to publisher sites automatically across 68 categories, using fastText embeddings and logistic regression served through FastAPI.</li>
+                <li>Replaced a model that recommended the minimum price for 55% of publisher sites with a combined site score and a price curve fitted on past deals.</li>
             </ul>
         </article>
 
         <article class="experience-item resume-block">
-            <h3>Lead Ruby on Rails developer</h3>
+            <h3>Ruby on Rails Developer</h3>
             <p class="company-name">{% black_link url="https://sape.ru" text="Sape" %}</p>
             <p class="experience-date">Dec 2016 - Nov 2020</p>
 
             <p>
-                Led backend and full-stack development for an ad-tech product integrating multiple advertising platforms. Worked on technical decisions, API design, code review, testing, deployment, monitoring, and frontend modernization.
+                Backend for a self-service ad platform running campaigns across Facebook, Google Ads, VK, and myTarget.
             </p>
 
             <ul>
-                <li>Unified API usage for external users and the frontend, reducing duplicated integration logic.</li>
-                <li>Built tools for advertising analytics, moderation-state synchronization, and campaign management.</li>
-                <li>Added system problem-detection tooling to make operational issues easier to find and investigate.</li>
-                <li>Implemented interactive UI features such as weekly schedules, bulk copying, and ad previews.</li>
-                <li>Supported frontend migration from CoffeeScript/jQuery to ES6 and React.</li>
-                <li>Helped unify account-wide UI layout and styling.</li>
+                <li>Kept campaign statuses and spend in sync with each ad network's API so that client balances were charged correctly.</li>
+                <li>Unified the API for external users and the frontend, removing duplicated integration logic.</li>
+                <li>Moved CI and hosting from a compromised Jenkins server to self-hosted GitLab with configuration in the repository.</li>
             </ul>
         </article>
 
         <article class="experience-item resume-block">
-            <h3>Ruby on Rails developer</h3>
-            <p class="company-name">{% black_link url="https://ord-in.com/" text="ORDIN" %}</p>
-            <p class="experience-date">Apr 2016 - Nov 2016</p>
+            <h3>Earlier Experience</h3>
 
-            <p>
-                Supported and developed Ruby on Rails applications for real estate process management and professional qualification workflows, across backend features, tests, deployment, and legacy frontend maintenance.
-            </p>
-        </article>
-
-        <article class="experience-item resume-block">
-            <h3>Software developer</h3>
-            <p class="company-name">{% black_link url="https://www.nasca-it.ru/" text="Nasca LTD" %}</p>
-            <p class="experience-date">Apr 2015 - Jan 2016</p>
-
-            <p>
-                Web and trading-related development in a Scrum team: a public website built from scratch, and <span class="text-nowrap">C++</span> components of a multi-part network application for exchange workflows, including exchange interaction and the Qt client.
-            </p>
-        </article>
-
-        <article class="experience-item resume-block">
-            <h3>C++/Qt developer</h3>
-            <p class="company-name">{% black_link url="https://www.nasca-it.ru/" text="Nasca LTD" %}</p>
-            <p class="experience-date">Dec 2012 - Sep 2013</p>
-
-            <p>
-                Trading-related desktop and backend tools: trading engine improvements, exchange log parsing, transaction logging, and an exchange emulator for testing and development.
-            </p>
-        </article>
-    </section>
-
-    <section class="certifications-section resume-block">
-        <h2>Certifications</h2>
-
-        <article class="experience-item">
-            <p class="company-name">{% black_link url="https://www.credly.com/badges/5f3c8d93-f48b-4e28-b343-ad25bf4b4778" text="Claude Certified Architect &ndash; Foundations" %} by Anthropic</p>
-            <p class="experience-date">Aug 2026 - Aug 2027</p>
-            <p>
-                Agentic architecture and orchestration, Claude Code workflows, prompt engineering and structured output, tool and MCP integration, context management and reliability.
-            </p>
+            <ul>
+                <li><strong>Ruby on Rails Developer</strong>, {% black_link url="https://ord-in.com/" text="ORDIN" %}, Apr 2016 - Nov 2016: Rails apps for real estate and qualification workflows.</li>
+                <li><strong>Software Engineer</strong>, {% black_link url="https://www.nasca-it.ru/" text="Nasca LTD" %}, Dec 2012 - Sep 2013 and Apr 2015 - Jan 2016: <span class="text-nowrap">C++</span> trading systems.</li>
+            </ul>
         </article>
     </section>
 
@@ -158,6 +121,14 @@
         {% output_core_skill_areas %}
     </section>
 
+    <section class="certifications-section resume-block">
+        <h2>Certifications</h2>
+
+        <article class="experience-item">
+            <p class="company-name">{% black_link url="https://www.credly.com/badges/5f3c8d93-f48b-4e28-b343-ad25bf4b4778" text="Claude Certified Architect &ndash; Foundations" %} by Anthropic (Aug 2026)</p>
+        </article>
+    </section>
+
     <section class="education-section resume-block">
         <h2>Education</h2>
 
@@ -165,7 +136,7 @@
             <strong class="education-institution">Pskov State University</strong>
             <div class="education-degree">
                 <strong>Master's degree,</strong>
-                <span>Informatics <span class="education-specialization">(Information Systems and Technologies)</span></span>
+                <span>Information Systems and Technologies</span>
             </div>
             <div class="education-date">2008 - 2013</div>
         </div>
@@ -176,7 +147,7 @@
 
         <p class="language-list">
             <strong class="language-name">English</strong>
-            <span class="language-level">(Advanced)</span>,
+            <span class="language-level">(Professional working proficiency)</span>,
             <strong class="language-name">Russian</strong>
             <span class="language-level">(Native)</span>
         </p>

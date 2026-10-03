@@ -2,7 +2,7 @@ from django.template.loader import render_to_string
 from weasyprint import HTML
 
 RESUME_TEMPLATE = "app/resume.html"
-RESUME_PDF_FILENAME = "Ivan_Reshetnikov_Senior_ML_AI_Engineer.pdf"
+RESUME_PDF_FILENAME = "Ivan_Reshetnikov_ML_AI_Engineer.pdf"
 
 
 def write_resume_pdf(base_url, target=None, request=None):
