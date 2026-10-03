@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+
+{% block title %}Posts | Ivan Reshetnikov{% endblock %}
+
+{% block body %}
+<div class="resume-page">
+    <nav class="resume-actions">
+        <a href="/">Resume</a>
+    </nav>
+
+    <header class="resume-header">
+        <h1>Posts</h1>
+    </header>
+
+    {% for post in posts %}
+    <article class="post-preview">
+        <h2><a class="resume-link" href="/posts/{{ post.slug }}/">{{ post.title }}</a></h2>
+        <p class="post-date">{{ post.date|date:"j M Y" }}</p>
+        <p>{{ post.body|truncatewords:30 }}</p>
+    </article>
+    {% endfor %}
+</div>
+{% endblock %}

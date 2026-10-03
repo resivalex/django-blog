@@ -1,16 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ivan Reshetnikov | Machine Learning Engineer &amp; AI Engineer</title>
-    <link href="{% static 'app/styles.css' %}" rel="stylesheet">
-    <link rel="icon" type="image/png" href="{% static 'app/favicon.png' %}" />
-</head>
-<body>
+{% extends 'app/base.html' %}
+
+{% block title %}Ivan Reshetnikov | Machine Learning Engineer &amp; AI Engineer{% endblock %}
+
+{% block body %}
     {% include 'app/resume-body.html' %}
-</body>
-</html>
+{% endblock %}

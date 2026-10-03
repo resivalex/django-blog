@@ -274,6 +274,55 @@ section + section {
   color: #333 !important;
 }
 
+.post-preview {
+  margin-bottom: 32px;
+}
+
+.post-preview h2 {
+  margin-bottom: 10px;
+  font-size: 21px;
+}
+
+.post-preview h2 a {
+  text-decoration: none;
+}
+
+.post-preview h2 a:hover {
+  text-decoration: underline;
+}
+
+.post-date {
+  margin: -6px 0 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.post h1 {
+  margin: 0 0 12px;
+  color: #2f2f2f;
+  font-size: 32px;
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+.post .post-date {
+  margin: 0 0 22px;
+}
+
+.post-body {
+  margin-bottom: 32px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.post-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 32px;
+  border: 1px solid #e3e3e3;
+}
+
 @media (max-width: 720px) {
   body {
     font-size: 15px;
