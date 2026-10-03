@@ -2,11 +2,27 @@
 
 {% block title %}Ivan Reshetnikov | Machine Learning Engineer &amp; AI Engineer{% endblock %}
 
+{% block description %}ML engineer with 5+ years shipping models to production and building LLM workflows since 2023.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ivan Reshetnikov",
+  "jobTitle": "Machine Learning Engineer & AI Engineer",
+  "url": "https://resivalex.com/",
+  "address": {"@type": "PostalAddress", "addressLocality": "Belgrade", "addressCountry": "RS"},
+  "sameAs": ["https://www.linkedin.com/in/resivalex/", "https://github.com/resivalex"]
+}
+</script>
+{% endblock %}
+
 {% block body %}
     <div class="resume-page">
         {% if not is_pdf %}
         <div class="resume-actions">
-            <a class="pdf-button" href="/Ivan_Reshetnikov_ML_AI_Engineer.pdf">Download PDF</a>
+            <a class="pdf-button" href="/Ivan_Reshetnikov_ML_AI_Engineer.pdf">Download resume (PDF)</a>
             <a href="/posts/">Posts</a>
         </div>
         {% endif %}

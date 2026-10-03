@@ -4,7 +4,7 @@ from django.urls import path, re_path
 from django.views.generic import RedirectView
 from django.views.static import serve
 
-from app.views import home, posts, post, resume_pdf
+from app.views import home, posts, post, resume_pdf, robots, sitemap
 
 STATIC_DIR = settings.BASE_DIR / "app" / "static"
 
@@ -12,6 +12,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", home, name="home"),
     path("posts/", posts, name="posts"),
+    path("sitemap.xml", sitemap, name="sitemap"),
+    path("robots.txt", robots, name="robots"),
     path("posts/<slug:slug>/", post, name="post"),
     path("Ivan_Reshetnikov_ML_AI_Engineer.pdf", resume_pdf, name="resume-pdf"),
     path(

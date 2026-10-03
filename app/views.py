@@ -19,6 +19,14 @@ def post(request, slug):
     return render(request, "app/post.html", {"post": POSTS_BY_SLUG[slug]})
 
 
+def sitemap(request):
+    return render(request, "app/sitemap.xml", {"posts": POSTS}, content_type="application/xml")
+
+
+def robots(request):
+    return render(request, "app/robots.txt", content_type="text/plain")
+
+
 def resume_pdf(request):
     base_url = request.build_absolute_uri('/')
     pdf = write_resume_pdf(base_url=base_url, request=request)
