@@ -242,21 +242,89 @@ section + section {
 
 /* Posts */
 
-.post-preview {
-  margin-bottom: 32px;
+.site-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #e3e3e3;
 }
 
-.post-preview h2 {
+.site-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px 72px;
+}
+
+.site-bar-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2f2f2f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-bar-author img {
+  border-radius: 50%;
+}
+
+.site-bar-links {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.site-bar-links a {
+  color: #333;
+  text-underline-offset: 2px;
+}
+
+.site-bar + .resume-page {
+  padding-top: 40px;
+}
+
+.post-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 20px;
+  padding: 16px;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #e3e3e3;
+  border-radius: 8px;
+}
+
+.post-card:hover {
+  border-color: #9f9f9f;
+}
+
+.post-card:hover h2 {
+  text-decoration: underline;
+}
+
+.post-card h2 {
   margin-bottom: 4px;
   font-size: 21px;
 }
 
-.post-preview h2 a {
-  text-decoration: none;
+.post-card .post-excerpt {
+  margin-bottom: 0;
 }
 
-.post-preview h2 a:hover {
-  text-decoration: underline;
+.post-card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
 }
 
 .post-excerpt {
@@ -276,6 +344,46 @@ section + section {
 
 .post .post-date {
   margin-bottom: 22px;
+}
+
+.posts-intro {
+  margin: 8px 0 0;
+  font-size: 16px;
+}
+
+.author-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.author-photo {
+  flex: none;
+  border-radius: 50%;
+}
+
+.author-box {
+  margin-bottom: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.author-box p {
+  margin-bottom: 8px;
+}
+
+.author-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.author-links {
+  display: flex;
+  gap: 20px;
+}
+
+.author-links a {
+  color: #333;
 }
 
 .post-body {
@@ -301,6 +409,15 @@ section + section {
 
   .post h1 {
     font-size: 26px;
+  }
+
+  .site-bar-inner {
+    padding: 8px 22px;
+  }
+
+  .post-card {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 

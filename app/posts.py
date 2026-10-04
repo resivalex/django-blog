@@ -4,6 +4,7 @@ from datetime import date
 POSTS = [
     {
         "slug": "english-review-instruction",
+        "description": 'My coding agent reviews the English in every prompt before the task. How I made one global instruction stable, and what it costs per session.',
         "date": date(2026, 9, 22),
         "title": 'No new app. No new habit. Just better English while I work.',
         "image": "english-review.png",
@@ -57,6 +58,7 @@ The full instruction → https://gist.github.com/resivalex/bdfd0769672b9c8a954a4
     },
     {
         "slug": "agents-md-claude-md",
+        "description": 'Share one set of instructions between Claude Code and OpenAI Codex: keep it in AGENTS.md, import it from CLAUDE.md, and know how each tool finds nested files.',
         "date": date(2026, 8, 21),
         "title": 'Shared Claude Code & OpenAI Codex instructions.',
         "image": "agents-md.png",
@@ -85,6 +87,7 @@ OpenAI Codex → https://learn.chatgpt.com/docs/agent-configuration/agents-md#ho
     },
     {
         "slug": "product-type-discovery",
+        "description": 'Product type discovery for millions of products with no taxonomy: a same-type contract, an LLM judge for merges, metric learning, and active learning.',
         "date": date(2026, 8, 3),
         "title": "Can't name. Can't count. Still have to classify.",
         "image": "product-type-discovery.gif",

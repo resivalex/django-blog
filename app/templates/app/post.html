@@ -2,7 +2,11 @@
 
 {% block title %}{{ post.title }} | Ivan Reshetnikov{% endblock %}
 
-{% block description %}{{ post.excerpt }}{% endblock %}
+{% block description %}{{ post.description }}{% endblock %}
+
+{% block og_title %}{{ post.title }}{% endblock %}
+
+{% block og_description %}{{ post.description }}{% endblock %}
 
 {% block og %}
     <meta property="og:type" content="article">
@@ -21,23 +25,42 @@
   "datePublished": "{{ post.date|date:"Y-m-d" }}",
   "image": "https://resivalex.com/static/app/posts/{{ post.image }}",
   "url": "https://resivalex.com/posts/{{ post.slug }}/",
-  "author": {"@type": "Person", "name": "Ivan Reshetnikov", "url": "https://resivalex.com/"}
+  "mainEntityOfPage": "https://resivalex.com/posts/{{ post.slug }}/",
+  "description": "{{ post.description|escapejs }}",
+  "author": {
+    "@type": "Person",
+    "name": "Ivan Reshetnikov",
+    "url": "https://resivalex.com/",
+    "jobTitle": "Machine Learning Engineer & AI Engineer",
+    "image": "https://resivalex.com/static/app/ivan-reshetnikov.jpg",
+    "sameAs": ["https://www.linkedin.com/in/resivalex/", "https://github.com/resivalex"]
+  }
 }
 </script>
 {% endblock %}
 
 {% block body %}
+{% include 'app/site-bar.html' %}
 <div class="resume-page">
-    <nav class="resume-actions">
-        <a href="/posts/">All posts</a>
-        <a href="/">Resume</a>
-    </nav>
 
     <article class="post">
         <img class="post-image" src="/static/app/posts/{{ post.image }}" alt="{{ post.alt }}">
         <h1>{{ post.title }}</h1>
-        <p class="post-date">{{ post.date|date:"j M Y" }}</p>
+        <p class="post-date"><a class="resume-link" href="/" rel="author">Ivan Reshetnikov</a> · {{ post.date|date:"j M Y" }}</p>
         <div class="post-body">{{ post.body|urlize }}</div>
+
+        <aside class="author-box">
+            <img class="author-photo" src="/static/app/ivan-reshetnikov.jpg" alt="Ivan Reshetnikov" width="72" height="72">
+            <div>
+                <p class="author-name">Ivan Reshetnikov</p>
+                <p>Machine Learning Engineer &amp; AI Engineer in Belgrade, Serbia. 5+ years shipping ML to production: search and matching for marketplaces and e-commerce, pricing, forecasting, and LLM workflows with human review.</p>
+                <p class="author-links">
+                    <a href="/">Resume</a>
+                    <a href="https://www.linkedin.com/in/resivalex/" rel="me" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/resivalex" rel="me" target="_blank">GitHub</a>
+                </p>
+            </div>
+        </aside>
     </article>
 </div>
 {% endblock %}

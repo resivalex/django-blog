@@ -6,11 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
     <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="author" content="Ivan Reshetnikov">
     <link rel="canonical" href="https://resivalex.com{{ request.path }}">
-    {# ponytail: og:title and og:description fall back to <title> and the description above #}
     <meta property="og:site_name" content="Ivan Reshetnikov">
     <meta property="og:url" content="https://resivalex.com{{ request.path }}">
-    {% block og %}<meta property="og:type" content="website">{% endblock %}
+    <meta property="og:title" content="{% block og_title %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{% endblock %}">
+    {% block og %}
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://resivalex.com/static/app/ivan-reshetnikov.jpg">
+    <meta property="og:image:alt" content="Ivan Reshetnikov">
+    <meta name="twitter:card" content="summary">
+    {% endblock %}
     <link href="{% static 'app/styles.css' %}" rel="stylesheet">
     <link rel="icon" type="image/png" href="{% static 'app/favicon.png' %}" />
     {% block structured_data %}{% endblock %}

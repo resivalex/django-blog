@@ -1,25 +1,45 @@
 {% extends 'app/base.html' %}
 
-{% block title %}Posts | Ivan Reshetnikov{% endblock %}
+{% block title %}Posts by Ivan Reshetnikov{% endblock %}
 
 {% block description %}Posts by Ivan Reshetnikov on machine learning, LLM workflows, and AI coding agents.{% endblock %}
 
-{% block body %}
-<div class="resume-page">
-    <nav class="resume-actions">
-        <a href="/">Resume</a>
-    </nav>
+{% block og_title %}Posts by Ivan Reshetnikov{% endblock %}
 
+{% block og_description %}Posts by Ivan Reshetnikov on machine learning, LLM workflows, and AI coding agents.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Posts by Ivan Reshetnikov",
+  "url": "https://resivalex.com/posts/",
+  "author": {"@type": "Person", "name": "Ivan Reshetnikov", "url": "https://resivalex.com/", "image": "https://resivalex.com/static/app/ivan-reshetnikov.jpg"},
+  "blogPost": [{% for post in posts %}
+    {"@type": "BlogPosting", "headline": "{{ post.title|escapejs }}", "url": "https://resivalex.com/posts/{{ post.slug }}/", "datePublished": "{{ post.date|date:"Y-m-d" }}"}{% if not forloop.last %},{% endif %}{% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block body %}
+{% include 'app/site-bar.html' %}
+<div class="resume-page">
     <header class="resume-header">
-        <h1>Posts</h1>
+        <h1>Posts by Ivan Reshetnikov</h1>
+        <p class="posts-intro">Machine Learning Engineer &amp; AI Engineer in Belgrade. Notes from production ML and LLM work.</p>
     </header>
 
     {% for post in posts %}
-    <article class="post-preview">
-        <h2><a class="resume-link" href="/posts/{{ post.slug }}/">{{ post.title }}</a></h2>
-        <p class="post-date">{{ post.date|date:"j M Y" }}</p>
-        <p class="post-excerpt">{{ post.excerpt }}</p>
-    </article>
+    <a class="post-card" href="/posts/{{ post.slug }}/">
+        <img class="post-card-image" src="/static/app/posts/{{ post.slug }}-thumb.jpg" alt="" width="640" height="480" loading="lazy">
+        <div>
+            <h2>{{ post.title }}</h2>
+            <p class="post-date">{{ post.date|date:"j M Y" }}</p>
+            <p class="post-excerpt">{{ post.excerpt }}</p>
+        </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock %}
