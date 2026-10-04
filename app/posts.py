@@ -50,9 +50,7 @@ That's the cost of the instruction, and I've noticed no quality drop. Even in th
 Did my English actually improve?
 Yes, especially articles. My guess is frequency, since they show up in almost every sentence.
 
-This is my only global user-level instruction, in CLAUDE.md/AGENTS.md. See the link in the first comment.
-
-What has earned a place in your global instructions?
+This is my only global user-level instruction, in CLAUDE.md/AGENTS.md.
 
 The full instruction → https://gist.github.com/resivalex/bdfd0769672b9c8a954a49f5fb9c2b06""",
     },
@@ -78,9 +76,7 @@ One caveat in the mechanics. Both merge nested instructions with the root file, 
 • Claude Code discovers nested CLAUDE.md on demand when working with files in that directory.
 • Codex loads the AGENTS.md chain from the project root to the current working directory at session start.
 
-Official docs in the comments.
-
-Related links:
+Official docs:
 
 Claude Code → https://code.claude.com/docs/en/memory#how-claude-md-files-load
 OpenAI Codex → https://learn.chatgpt.com/docs/agent-configuration/agents-md#how-codex-discovers-guidance""",
